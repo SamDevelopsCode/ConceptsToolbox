@@ -1,0 +1,15 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://hk1daviq14ti"]
+
+[ext_resource type="FontFile" uid="uid://6k3yyj78acdo" path="res://fonts/MonospaceTypewriter.ttf" id="1_x3ckr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_madd8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_axau6"]
+
+[resource]
+Button/font_sizes/font_size = 18
+Button/fonts/font = ExtResource("1_x3ckr")
+Button/styles/focus = SubResource("StyleBoxEmpty_madd8")
+Button/styles/normal = SubResource("StyleBoxEmpty_axau6")
+Label/font_sizes/font_size = 28
+Label/fonts/font = ExtResource("1_x3ckr")
