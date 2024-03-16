@@ -6,7 +6,7 @@ public partial class MainControls : HBoxContainer
 	[ExportCategory("Main App Buttons")]
 	[Export] private Button _menuButton;
 	[Export] private AnimationPlayer _animPlayer;
-	[Export] private Panel _sidebar;
+	[Export] private PanelContainer _sidebar;
 	[Export] private Button _minimizeButton;
 	[Export] private Button _maximizeButton;
 	[Export] private Button _quitButton;

@@ -11,13 +11,13 @@ public partial class ConceptInfoLoader : VBoxContainer
 	[ExportCategory("Main Content Container")]
 	[Export] private VBoxContainer _content;
 
-	
 
 	public override void _Ready()
 	{
 		foreach (Button child in GetChildren())
 		{
 			child.Text = child.Name;
+			child.TooltipText = child.Name;
 			child.Pressed += () => OnButtonPressed(child);
 		}
 	}

@@ -19,7 +19,7 @@ bg_color = Color(0.207843, 0.215686, 0.294118, 1)
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 
-[sub_resource type="Animation" id="Animation_kdogr"]
+[sub_resource type="Animation" id="Animation_ghagv"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -34,18 +34,18 @@ tracks/0/keys = {
 "values": [Vector2(0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_0w5y3"]
+[sub_resource type="Animation" id="Animation_qdkse"]
 resource_name = "open_sidebar"
-length = 0.1
+length = 0.15
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("VBoxContainer/HBoxContainer/Sidebar:custom_minimum_size")
-tracks/0/interp = 2
+tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
+"times": PackedFloat32Array(0, 0.15),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(125, 0)]
@@ -53,8 +53,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_enjva"]
 _data = {
-"RESET": SubResource("Animation_kdogr"),
-"open_sidebar": SubResource("Animation_0w5y3")
+"RESET": SubResource("Animation_ghagv"),
+"open_sidebar": SubResource("Animation_qdkse")
 }
 
 [node name="App" type="Control"]
@@ -64,6 +64,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("5_rd3j3")
 
 [node name="BG" type="ColorRect" parent="."]
 layout_mode = 1
@@ -99,7 +100,7 @@ grow_vertical = 2
 theme_override_constants/separation = 0
 script = ExtResource("2_c630d")
 _menuButton = NodePath("MenuButton")
-_animPlayer = NodePath("../../HBoxContainer/Sidebar/AnimationPlayer")
+_animPlayer = NodePath("../../HBoxContainer/AnimationPlayer")
 _sidebar = NodePath("../../HBoxContainer/Sidebar")
 _minimizeButton = NodePath("Minimize")
 _maximizeButton = NodePath("Maximize")
@@ -158,170 +159,156 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 0
 
-[node name="Sidebar" type="Panel" parent="VBoxContainer/HBoxContainer"]
-clip_contents = true
+[node name="Sidebar" type="PanelContainer" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_kqsli")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Sidebar"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ConceptsContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Sidebar/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/HBoxContainer/Sidebar"]
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/separation = 0
-
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/HBoxContainer/Sidebar/VBoxContainer/ConceptsContainer"]
-layout_mode = 2
-size_flags_vertical = 3
 horizontal_scroll_mode = 3
 vertical_scroll_mode = 3
 
-[node name="ConceptButtons" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Sidebar/VBoxContainer/ConceptsContainer/ScrollContainer" node_paths=PackedStringArray("_content")]
+[node name="ConceptButtons" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer" node_paths=PackedStringArray("_content")]
 layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("8_4x1iw")
 _typesInfoScene = ExtResource("9_yrdkh")
 _dotnetInfoScene = ExtResource("10_humx5")
-_content = NodePath("../../../../../Content")
+_content = NodePath("../../../Content")
 
-[node name="DotNet" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/VBoxContainer/ConceptsContainer/ScrollContainer/ConceptButtons"]
+[node name="DotNet" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons"]
 auto_translate_mode = 1
-custom_minimum_size = Vector2(50, 75)
+custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
-theme = ExtResource("5_rd3j3")
+size_flags_vertical = 3
+text_overrun_behavior = 3
 
-[node name="Variables" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/VBoxContainer/ConceptsContainer/ScrollContainer/ConceptButtons"]
+[node name="Variables" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons"]
 auto_translate_mode = 1
-custom_minimum_size = Vector2(50, 75)
+custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
-theme = ExtResource("5_rd3j3")
+text_overrun_behavior = 3
 
-[node name="Types" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/VBoxContainer/ConceptsContainer/ScrollContainer/ConceptButtons"]
-custom_minimum_size = Vector2(50, 75)
+[node name="Types" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons"]
+custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
-theme = ExtResource("5_rd3j3")
+text_overrun_behavior = 3
 
-[node name="Strings" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/VBoxContainer/ConceptsContainer/ScrollContainer/ConceptButtons"]
+[node name="Strings" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons"]
 auto_translate_mode = 1
-custom_minimum_size = Vector2(50, 75)
+custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
-theme = ExtResource("5_rd3j3")
+text_overrun_behavior = 3
 
-[node name="Loops" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/VBoxContainer/ConceptsContainer/ScrollContainer/ConceptButtons"]
+[node name="Loops" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons"]
 auto_translate_mode = 1
-custom_minimum_size = Vector2(50, 75)
+custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
-theme = ExtResource("5_rd3j3")
+text_overrun_behavior = 3
 
-[node name="Arrays" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/VBoxContainer/ConceptsContainer/ScrollContainer/ConceptButtons"]
+[node name="Arrays" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons"]
 auto_translate_mode = 1
-custom_minimum_size = Vector2(50, 75)
+custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
-theme = ExtResource("5_rd3j3")
+text_overrun_behavior = 3
 
-[node name="Switches" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/VBoxContainer/ConceptsContainer/ScrollContainer/ConceptButtons"]
+[node name="Switches" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons"]
 auto_translate_mode = 1
-custom_minimum_size = Vector2(50, 75)
+custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
-theme = ExtResource("5_rd3j3")
+text_overrun_behavior = 3
 
-[node name="Memory Management" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/VBoxContainer/ConceptsContainer/ScrollContainer/ConceptButtons"]
+[node name="Memory Management" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons"]
 auto_translate_mode = 1
-custom_minimum_size = Vector2(50, 75)
+custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
-theme = ExtResource("5_rd3j3")
+text_overrun_behavior = 3
 
-[node name="Enumerations" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/VBoxContainer/ConceptsContainer/ScrollContainer/ConceptButtons"]
+[node name="Enumerations" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons"]
 auto_translate_mode = 1
-custom_minimum_size = Vector2(50, 75)
+custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
-theme = ExtResource("5_rd3j3")
+text_overrun_behavior = 3
 
-[node name="Tuples" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/VBoxContainer/ConceptsContainer/ScrollContainer/ConceptButtons"]
+[node name="Tuples" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons"]
 auto_translate_mode = 1
-custom_minimum_size = Vector2(50, 75)
+custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
-theme = ExtResource("5_rd3j3")
+text_overrun_behavior = 3
 
-[node name="Classes" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/VBoxContainer/ConceptsContainer/ScrollContainer/ConceptButtons"]
+[node name="Classes" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons"]
 auto_translate_mode = 1
-custom_minimum_size = Vector2(50, 75)
+custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
-theme = ExtResource("5_rd3j3")
+text_overrun_behavior = 3
 
-[node name="Accessors" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/VBoxContainer/ConceptsContainer/ScrollContainer/ConceptButtons"]
+[node name="Accessors" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons"]
 auto_translate_mode = 1
-custom_minimum_size = Vector2(50, 75)
+custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
-theme = ExtResource("5_rd3j3")
+text_overrun_behavior = 3
 
-[node name="Properties" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/VBoxContainer/ConceptsContainer/ScrollContainer/ConceptButtons"]
+[node name="Properties" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons"]
 auto_translate_mode = 1
-custom_minimum_size = Vector2(50, 75)
+custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
-theme = ExtResource("5_rd3j3")
+text_overrun_behavior = 3
 
-[node name="Static" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/VBoxContainer/ConceptsContainer/ScrollContainer/ConceptButtons"]
+[node name="Static" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons"]
 auto_translate_mode = 1
-custom_minimum_size = Vector2(50, 75)
+custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
-theme = ExtResource("5_rd3j3")
+text_overrun_behavior = 3
 
-[node name="Null References" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/VBoxContainer/ConceptsContainer/ScrollContainer/ConceptButtons"]
+[node name="Null References" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons"]
 auto_translate_mode = 1
-custom_minimum_size = Vector2(50, 75)
+custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
-theme = ExtResource("5_rd3j3")
+text_overrun_behavior = 3
 
-[node name="Inheritance" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/VBoxContainer/ConceptsContainer/ScrollContainer/ConceptButtons"]
+[node name="Inheritance" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons"]
 auto_translate_mode = 1
-custom_minimum_size = Vector2(50, 75)
+custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
-theme = ExtResource("5_rd3j3")
+text_overrun_behavior = 3
 
-[node name="Polymorphism" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/VBoxContainer/ConceptsContainer/ScrollContainer/ConceptButtons"]
+[node name="Polymorphism" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons"]
 auto_translate_mode = 1
-custom_minimum_size = Vector2(50, 75)
+custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
-theme = ExtResource("5_rd3j3")
+text_overrun_behavior = 3
 
-[node name="Interfaces" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/VBoxContainer/ConceptsContainer/ScrollContainer/ConceptButtons"]
+[node name="Interfaces" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons"]
 auto_translate_mode = 1
-custom_minimum_size = Vector2(50, 75)
+custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
-theme = ExtResource("5_rd3j3")
+text_overrun_behavior = 3
 
-[node name="Structs" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/VBoxContainer/ConceptsContainer/ScrollContainer/ConceptButtons"]
+[node name="Structs" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons"]
 auto_translate_mode = 1
-custom_minimum_size = Vector2(50, 75)
+custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
-theme = ExtResource("5_rd3j3")
+text_overrun_behavior = 3
 
-[node name="Records" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/VBoxContainer/ConceptsContainer/ScrollContainer/ConceptButtons"]
+[node name="Records" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons"]
 auto_translate_mode = 1
-custom_minimum_size = Vector2(50, 75)
+custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
-theme = ExtResource("5_rd3j3")
+text_overrun_behavior = 3
 
-[node name="Generics" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/VBoxContainer/ConceptsContainer/ScrollContainer/ConceptButtons"]
+[node name="Generics" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons"]
 auto_translate_mode = 1
-custom_minimum_size = Vector2(50, 75)
+custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
-theme = ExtResource("5_rd3j3")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="VBoxContainer/HBoxContainer/Sidebar"]
-root_node = NodePath("../../../..")
-libraries = {
-"": SubResource("AnimationLibrary_enjva")
-}
+text_overrun_behavior = 3
 
 [node name="Content" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="VBoxContainer/HBoxContainer"]
+root_node = NodePath("../../..")
+libraries = {
+"": SubResource("AnimationLibrary_enjva")
+}
