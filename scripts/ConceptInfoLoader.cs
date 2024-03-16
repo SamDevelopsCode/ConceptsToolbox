@@ -22,7 +22,7 @@ public partial class ConceptInfoLoader : VBoxContainer
 	}
 
 	
-	private void OnButtonPressed(Button button)
+	private async void OnButtonPressed(Button button)
 	{
 		if (_content.GetChildCount() > 0)
 		{
@@ -31,7 +31,11 @@ public partial class ConceptInfoLoader : VBoxContainer
 			{
 				return;
 			}
+
+			var animPlayer = currentInfoContainer.GetNode<AnimationPlayer>("AnimPlayer");
 			
+			animPlayer.PlayBackwards("expand");
+			await ToSignal(animPlayer, AnimationPlayer.SignalName.AnimationFinished);
 			currentInfoContainer.QueueFree();
 		}
 		
@@ -47,7 +51,7 @@ public partial class ConceptInfoLoader : VBoxContainer
 				_content.AddChild(infoContainerInstance);
 				break;
 		};
-		
-		
 	}
+	
+	
 }

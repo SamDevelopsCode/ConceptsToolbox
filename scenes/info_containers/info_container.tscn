@@ -161,7 +161,7 @@ theme = ExtResource("1_2oaqp")
 text = "This is a test intro explanation of some concept. A test explanation is when you don't have an actual concept or explanation but you need to fill an example section of text. I hope you have enjoyed reading this.."
 autowrap_mode = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../BGPanel")
 libraries = {
 "": SubResource("AnimationLibrary_op1p1")
