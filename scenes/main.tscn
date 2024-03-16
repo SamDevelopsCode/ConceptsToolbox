@@ -1,12 +1,15 @@
-[gd_scene load_steps=13 format=3 uid="uid://hgci7p5fdv6y"]
+[gd_scene load_steps=16 format=3 uid="uid://hgci7p5fdv6y"]
 
 [ext_resource type="Texture2D" uid="uid://ik7m64txpp33" path="res://art/menu_icon.svg" id="2_4tn1m"]
-[ext_resource type="Script" path="res://scenes/MainControls.cs" id="2_c630d"]
+[ext_resource type="Script" path="res://scripts/MainControls.cs" id="2_c630d"]
 [ext_resource type="Texture2D" uid="uid://on2is3rptdie" path="res://art/minimize_icon.svg" id="3_5r3c4"]
 [ext_resource type="Texture2D" uid="uid://dd4hv8yx1e1ja" path="res://art/close_icon.svg" id="3_jqeda"]
 [ext_resource type="Script" path="res://scripts/WindowDragger.cs" id="4_70boq"]
 [ext_resource type="Texture2D" uid="uid://diqaupjpwkv12" path="res://art/maximize_icon.svg" id="4_fh14i"]
 [ext_resource type="Theme" uid="uid://hk1daviq14ti" path="res://themes/main.tres" id="5_rd3j3"]
+[ext_resource type="Script" path="res://scripts/ConceptInfoLoader.cs" id="8_4x1iw"]
+[ext_resource type="PackedScene" uid="uid://5nj1k6datt5u" path="res://scenes/info_containers/info_container_types.tscn" id="9_yrdkh"]
+[ext_resource type="PackedScene" uid="uid://csqf351jb25ky" path="res://scenes/info_containers/info_container_dotnet.tscn" id="10_humx5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_28k4j"]
 bg_color = Color(0.0352941, 0.0392157, 0.0745098, 1)
@@ -85,7 +88,7 @@ custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_28k4j")
 
-[node name="WindowTitleBar" type="HBoxContainer" parent="VBoxContainer/TopBar" node_paths=PackedStringArray("_menuButton", "_animPlayer", "_sidebar", "_minimizeButton", "_maximizeButton", "_quitButton", "_typesButton", "_content")]
+[node name="WindowTitleBar" type="HBoxContainer" parent="VBoxContainer/TopBar" node_paths=PackedStringArray("_menuButton", "_animPlayer", "_sidebar", "_minimizeButton", "_maximizeButton", "_quitButton")]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 1
 anchors_preset = 15
@@ -101,8 +104,6 @@ _sidebar = NodePath("../../HBoxContainer/Sidebar")
 _minimizeButton = NodePath("Minimize")
 _maximizeButton = NodePath("Maximize")
 _quitButton = NodePath("Quit")
-_typesButton = NodePath("../../HBoxContainer/Sidebar/VBoxContainer/ConceptsContainer/ScrollContainer/ConceptButtons/TypesButton")
-_content = NodePath("../../HBoxContainer/Content")
 
 [node name="MenuButton" type="Button" parent="VBoxContainer/TopBar/WindowTitleBar"]
 custom_minimum_size = Vector2(125, 50)
@@ -181,36 +182,36 @@ size_flags_vertical = 3
 horizontal_scroll_mode = 3
 vertical_scroll_mode = 3
 
-[node name="ConceptButtons" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Sidebar/VBoxContainer/ConceptsContainer/ScrollContainer"]
+[node name="ConceptButtons" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Sidebar/VBoxContainer/ConceptsContainer/ScrollContainer" node_paths=PackedStringArray("_content")]
 layout_mode = 2
 size_flags_horizontal = 3
+script = ExtResource("8_4x1iw")
+_typesInfoScene = ExtResource("9_yrdkh")
+_dotnetInfoScene = ExtResource("10_humx5")
+_content = NodePath("../../../../../Content")
 
-[node name="TypesButton" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/VBoxContainer/ConceptsContainer/ScrollContainer/ConceptButtons"]
+[node name="Types" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/VBoxContainer/ConceptsContainer/ScrollContainer/ConceptButtons"]
 custom_minimum_size = Vector2(50, 75)
 layout_mode = 2
 theme = ExtResource("5_rd3j3")
-text = "Types"
 
-[node name="NavigationItem2" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/VBoxContainer/ConceptsContainer/ScrollContainer/ConceptButtons"]
+[node name="DotNet" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/VBoxContainer/ConceptsContainer/ScrollContainer/ConceptButtons"]
 auto_translate_mode = 1
 custom_minimum_size = Vector2(50, 75)
 layout_mode = 2
 theme = ExtResource("5_rd3j3")
-text = "Interface"
 
-[node name="NavigationItem3" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/VBoxContainer/ConceptsContainer/ScrollContainer/ConceptButtons"]
+[node name="Strings" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/VBoxContainer/ConceptsContainer/ScrollContainer/ConceptButtons"]
 auto_translate_mode = 1
 custom_minimum_size = Vector2(50, 75)
 layout_mode = 2
 theme = ExtResource("5_rd3j3")
-text = "Interface"
 
-[node name="NavigationItem4" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/VBoxContainer/ConceptsContainer/ScrollContainer/ConceptButtons"]
+[node name="Loops" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/VBoxContainer/ConceptsContainer/ScrollContainer/ConceptButtons"]
 auto_translate_mode = 1
 custom_minimum_size = Vector2(50, 75)
 layout_mode = 2
 theme = ExtResource("5_rd3j3")
-text = "Interface"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="VBoxContainer/HBoxContainer/Sidebar"]
 root_node = NodePath("../../../..")
