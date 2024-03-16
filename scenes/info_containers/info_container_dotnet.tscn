@@ -4,8 +4,13 @@
 
 [node name="DotNet" instance=ExtResource("1_omtqq")]
 
+[node name="MarginContainer" parent="BGPanel" index="0"]
+metadata/_edit_use_anchors_ = true
+
 [node name="Title" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="0"]
 text = ".Net"
 
 [node name="Intro" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="1"]
 text = ".Net is a thingy inside windows where you uh....I know there is a single black pixel involved and you also have the interweb online and together they make this thing."
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]

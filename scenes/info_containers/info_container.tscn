@@ -1,115 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cx75ggvi8ih8i"]
+[gd_scene load_steps=2 format=3 uid="uid://cx75ggvi8ih8i"]
 
 [ext_resource type="Theme" uid="uid://hk1daviq14ti" path="res://themes/main.tres" id="1_2oaqp"]
-
-[sub_resource type="Animation" id="Animation_yrqyp"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("..:theme_override_constants/margin_left")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [600]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("..:theme_override_constants/margin_top")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [320]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("..:theme_override_constants/margin_right")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [600]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("..:theme_override_constants/margin_bottom")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [320]
-}
-
-[sub_resource type="Animation" id="Animation_4o2t3"]
-resource_name = "expand"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("..:theme_override_constants/margin_left")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(0.574349, 1),
-"update": 0,
-"values": [600, 5]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("..:theme_override_constants/margin_top")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(0.574349, 1),
-"update": 0,
-"values": [320, 5]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("..:theme_override_constants/margin_right")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(0.574349, 1),
-"update": 0,
-"values": [600, 5]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("..:theme_override_constants/margin_bottom")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(0.574349, 1),
-"update": 0,
-"values": [320, 5]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_op1p1"]
-_data = {
-"RESET": SubResource("Animation_yrqyp"),
-"expand": SubResource("Animation_4o2t3")
-}
 
 [node name="InfoContainer" type="MarginContainer"]
 auto_translate_mode = 1
@@ -120,10 +11,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
-theme_override_constants/margin_left = 600
-theme_override_constants/margin_top = 320
-theme_override_constants/margin_right = 600
-theme_override_constants/margin_bottom = 320
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
 
 [node name="BGPanel" type="Panel" parent="."]
 auto_translate_mode = 1
@@ -160,10 +51,3 @@ layout_mode = 2
 theme = ExtResource("1_2oaqp")
 text = "This is a test intro explanation of some concept. A test explanation is when you don't have an actual concept or explanation but you need to fill an example section of text. I hope you have enjoyed reading this.."
 autowrap_mode = 2
-
-[node name="AnimPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../BGPanel")
-libraries = {
-"": SubResource("AnimationLibrary_op1p1")
-}
-autoplay = "expand"

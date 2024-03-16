@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 public partial class ConceptInfoLoader : VBoxContainer
 {
@@ -24,6 +25,7 @@ public partial class ConceptInfoLoader : VBoxContainer
 	
 	private async void OnButtonPressed(Button button)
 	{
+		// if there is already a info panel showing
 		if (_content.GetChildCount() > 0)
 		{
 			var currentInfoContainer = _content.GetChild(0);
@@ -31,27 +33,51 @@ public partial class ConceptInfoLoader : VBoxContainer
 			{
 				return;
 			}
-
-			var animPlayer = currentInfoContainer.GetNode<AnimationPlayer>("AnimPlayer");
 			
-			animPlayer.PlayBackwards("expand");
-			await ToSignal(animPlayer, AnimationPlayer.SignalName.AnimationFinished);
-			currentInfoContainer.QueueFree();
+			await TweenInfoContainerExit(currentInfoContainer);
 		}
 		
-		Node infoContainerInstance;
+		
+		Control infoContainerInstance;
 		switch (button.Name)
 		{ 
 			case "Types":
-				infoContainerInstance = _typesInfoScene.Instantiate();
+				infoContainerInstance = _typesInfoScene.Instantiate<Control>();
 				_content.AddChild(infoContainerInstance);
+				await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
+				infoContainerInstance.Scale = new Vector2(.01f, .01f);
+				infoContainerInstance.PivotOffset = infoContainerInstance.Size / 2;
+				TweenInfoContainerEntry(infoContainerInstance);
 				break;
 			case "DotNet":
-				infoContainerInstance = _dotnetInfoScene.Instantiate();
+				infoContainerInstance = _dotnetInfoScene.Instantiate<Control>();
 				_content.AddChild(infoContainerInstance);
+				await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
+				infoContainerInstance.Scale = new Vector2(.01f, .01f);
+				infoContainerInstance.PivotOffset = infoContainerInstance.Size / 2;
+				TweenInfoContainerEntry(infoContainerInstance);
 				break;
 		};
 	}
+
+	
+	private void TweenInfoContainerEntry(Control infoContainerInstance)
+	{
+		Tween tween = GetTree().CreateTween();
+		tween.SetParallel();
+		tween.TweenProperty(infoContainerInstance, "scale:x", 1.0f, .3f);
+		tween.TweenProperty(infoContainerInstance, "scale:y", 1.0f, .3f);
+	}
 	
 	
+	private async Task TweenInfoContainerExit(Node currentInfoContainer)
+	{
+		Tween tween = GetTree().CreateTween();
+		tween.SetParallel();
+		tween.TweenProperty(currentInfoContainer, "scale:x", 0.01f, .3f);
+		tween.TweenProperty(currentInfoContainer, "scale:y", 0.01f, .3f);
+		await ToSignal(tween, Tween.SignalName.Finished);
+		currentInfoContainer.QueueFree();
+		await ToSignal(currentInfoContainer, Node.SignalName.TreeExited);
+	}
 }
