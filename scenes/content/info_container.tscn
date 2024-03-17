@@ -1,8 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cx75ggvi8ih8i"]
+[gd_scene load_steps=2 format=3 uid="uid://cx75ggvi8ih8i"]
 
 [ext_resource type="Theme" uid="uid://hk1daviq14ti" path="res://themes/main.tres" id="1_2oaqp"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7eqvl"]
 
 [node name="InfoContainer" type="MarginContainer"]
 auto_translate_mode = 1
@@ -42,22 +40,14 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer"]
+[node name="TitleContainer" type="MarginContainer" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="Title" type="Label" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/MarginContainer"]
+[node name="Title" type="Label" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/TitleContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("1_2oaqp")
 theme_override_font_sizes/font_size = 48
 horizontal_alignment = 1
-
-[node name="Main" type="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-focus_mode = 2
-theme_override_styles/focus = SubResource("StyleBoxEmpty_7eqvl")
-fit_content = true
-selection_enabled = true
-drag_and_drop_selection_enabled = false

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bcim245yjlwwf"]
+
+[node name="ContentContainer" type="MarginContainer"]
+auto_translate_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+auto_translate_mode = 1
+layout_mode = 2

@@ -8,9 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://diqaupjpwkv12" path="res://art/maximize_icon.svg" id="4_fh14i"]
 [ext_resource type="Theme" uid="uid://hk1daviq14ti" path="res://themes/main.tres" id="5_rd3j3"]
 [ext_resource type="Script" path="res://scripts/ConceptInfoLoader.cs" id="8_4x1iw"]
-[ext_resource type="PackedScene" uid="uid://5nj1k6datt5u" path="res://scenes/info_containers/info_container_types.tscn" id="9_yrdkh"]
-[ext_resource type="PackedScene" uid="uid://csqf351jb25ky" path="res://scenes/info_containers/info_container_dotnet.tscn" id="10_humx5"]
-[ext_resource type="PackedScene" uid="uid://dxhdr4rhia1in" path="res://scenes/info_containers/info_container_variables.tscn" id="10_pjp6a"]
+[ext_resource type="PackedScene" uid="uid://5nj1k6datt5u" path="res://scenes/content/info_container_types.tscn" id="9_yrdkh"]
+[ext_resource type="PackedScene" uid="uid://csqf351jb25ky" path="res://scenes/content/info_container_dotnet.tscn" id="10_humx5"]
+[ext_resource type="PackedScene" uid="uid://dxhdr4rhia1in" path="res://scenes/content/info_container_variables.tscn" id="10_pjp6a"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_28k4j"]
 bg_color = Color(0.0352941, 0.0392157, 0.0745098, 1)
