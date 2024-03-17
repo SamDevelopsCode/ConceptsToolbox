@@ -6,3 +6,7 @@ auto_translate_mode = 1
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 auto_translate_mode = 1
 layout_mode = 2
+focus_mode = 2
+bbcode_enabled = true
+fit_content = true
+selection_enabled = true

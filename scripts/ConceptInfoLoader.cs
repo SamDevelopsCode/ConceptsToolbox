@@ -17,6 +17,14 @@ public partial class ConceptInfoLoader : VBoxContainer
 	{
 		foreach (Button child in GetChildren())
 		{
+			// Godot won't allow '.' character in Node names so manually setting it in editor
+			if (child.Name == "DotNet")
+			{
+				child.Text = ".NET";
+				child.TooltipText = ".NET";
+				child.Pressed += () => OnButtonPressed(child);
+				continue;
+			}
 			child.Text = child.Name;
 			child.TooltipText = child.Name;
 			child.Pressed += () => OnButtonPressed(child);
@@ -65,8 +73,12 @@ public partial class ConceptInfoLoader : VBoxContainer
 		
 		//using modulation in method instead of hiding/showing because of weird flickering effect
 		newConceptContentInstance.Modulate = new Color(0, 0, 0, 0);
-		// setting the Title of the content page to the name of button node (Why type it when no need?)
-		newConceptContentInstance.GetNode<Label>("%Title").Text = buttonName;
+		// setting the Title of the content page to the name of button node 
+		// except for .NET as editor won't allow '.' in Node names.
+		if (buttonName != "DotNet")
+		{
+			newConceptContentInstance.GetNode<Label>("%Title").Text = buttonName;
+		}
 		
 		// docs suggest to await a process frame before setting scale of a control that is a child of a container
 		await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
