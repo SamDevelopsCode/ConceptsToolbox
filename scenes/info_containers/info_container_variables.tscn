@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxhdr4rhia1in"]
+
+[ext_resource type="PackedScene" uid="uid://cx75ggvi8ih8i" path="res://scenes/info_containers/info_container.tscn" id="1_ajc08"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n142s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nj47p"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 20
+
+[node name="Variables" instance=ExtResource("1_ajc08")]
+
+[node name="Main" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="1"]
+bbcode_enabled = true
+text = "Variables are essentially labels used to represent data stored in the computer's memory. They act as placeholders for values that can change during the execution of a program. Think of them as named containers that hold different types of information, such as numbers, text, or Boolean values. Variables play a crucial role in manipulating data, making decisions, and controlling the flow of a program."
+
+[node name="CodeMarginContainer" type="MarginContainer" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="2"]
+layout_mode = 2
+
+[node name="CodeExample" type="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/CodeMarginContainer" index="0"]
+layout_mode = 2
+focus_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_n142s")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nj47p")
+bbcode_enabled = true
+text = "Code Example:
+
+string name;
+name = \"user\";
+
+"
+fit_content = true
+selection_enabled = true

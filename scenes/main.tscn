@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://hgci7p5fdv6y"]
+[gd_scene load_steps=17 format=3 uid="uid://hgci7p5fdv6y"]
 
 [ext_resource type="Texture2D" uid="uid://ik7m64txpp33" path="res://art/menu_icon.svg" id="2_4tn1m"]
 [ext_resource type="Script" path="res://scripts/MainControls.cs" id="2_c630d"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://scripts/ConceptInfoLoader.cs" id="8_4x1iw"]
 [ext_resource type="PackedScene" uid="uid://5nj1k6datt5u" path="res://scenes/info_containers/info_container_types.tscn" id="9_yrdkh"]
 [ext_resource type="PackedScene" uid="uid://csqf351jb25ky" path="res://scenes/info_containers/info_container_dotnet.tscn" id="10_humx5"]
+[ext_resource type="PackedScene" uid="uid://dxhdr4rhia1in" path="res://scenes/info_containers/info_container_variables.tscn" id="10_pjp6a"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_28k4j"]
 bg_color = Color(0.0352941, 0.0392157, 0.0745098, 1)
@@ -172,8 +173,9 @@ vertical_scroll_mode = 3
 layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("8_4x1iw")
-_typesInfoScene = ExtResource("9_yrdkh")
 _dotnetInfoScene = ExtResource("10_humx5")
+_variablesInfoScene = ExtResource("10_pjp6a")
+_typesInfoScene = ExtResource("9_yrdkh")
 _content = NodePath("../../../Content")
 
 [node name="DotNet" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons"]

@@ -7,10 +7,16 @@
 [node name="MarginContainer" parent="BGPanel" index="0"]
 metadata/_edit_use_anchors_ = true
 
-[node name="Title" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="0"]
-text = ".Net"
+[node name="Title" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/MarginContainer" index="0"]
+text = ".NET"
 
-[node name="Intro" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="1"]
-text = ".Net is a thingy inside windows where you uh....I know there is a single black pixel involved and you also have the interweb online and together they make this thing."
+[node name="Main" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="1"]
+text = "In simple terms, .NET is a software development platform created by Microsoft. It provides developers with a set of tools, libraries, and frameworks to build a wide range of applications, such as websites, mobile apps, and desktop programs.
+
+At its core, .NET allows developers to write code in various programming languages, such as C#, Visual Basic, or F#. It also includes a runtime environment that manages the execution of the code and provides essential services like memory management and security.
+
+.NET offers different frameworks tailored for specific types of applications. For example, ASP.NET is used for web development, Xamarin for mobile app development, and .NET Core/.NET Framework for general-purpose application development.
+
+Overall, .NET simplifies and accelerates the process of building software by providing developers with the necessary tools and infrastructure to create robust and efficient applications for different platforms and devices."
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]

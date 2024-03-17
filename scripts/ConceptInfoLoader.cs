@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 
 public partial class ConceptInfoLoader : VBoxContainer
 {
-	[Export] private PackedScene _typesInfoScene;
 	[Export] private PackedScene _dotnetInfoScene;
+	[Export] private PackedScene _variablesInfoScene;
+	[Export] private PackedScene _typesInfoScene;
 	
 	[ExportCategory("Main Content Container")]
 	[Export] private VBoxContainer _content;
@@ -36,22 +37,38 @@ public partial class ConceptInfoLoader : VBoxContainer
 			
 			await TweenInfoContainerExit(currentInfoContainer);
 		}
-		
-		
+
+		await AddInfoContainer(button);
+	}
+
+	
+	private async Task AddInfoContainer(Button button)
+	{
 		Control infoContainerInstance;
 		switch (button.Name)
 		{ 
-			case "Types":
-				infoContainerInstance = _typesInfoScene.Instantiate<Control>();
+			case "DotNet":
+				infoContainerInstance = _dotnetInfoScene.Instantiate<Control>();
 				_content.AddChild(infoContainerInstance);
-				await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
+				infoContainerInstance.GetNode<Label>("%Title").Text = button.Name;
+				await ToSignal(GetTree(), "process_frame");
 				infoContainerInstance.Scale = new Vector2(.01f, .01f);
 				infoContainerInstance.PivotOffset = infoContainerInstance.Size / 2;
 				TweenInfoContainerEntry(infoContainerInstance);
 				break;
-			case "DotNet":
-				infoContainerInstance = _dotnetInfoScene.Instantiate<Control>();
+			case "Variables":
+				infoContainerInstance = _variablesInfoScene.Instantiate<Control>();
 				_content.AddChild(infoContainerInstance);
+				infoContainerInstance.GetNode<Label>("%Title").Text = button.Name;
+				await ToSignal(GetTree(), "process_frame");
+				infoContainerInstance.Scale = new Vector2(.01f, .01f);
+				infoContainerInstance.PivotOffset = infoContainerInstance.Size / 2;
+				TweenInfoContainerEntry(infoContainerInstance);
+				break;
+			case "Types":
+				infoContainerInstance = _typesInfoScene.Instantiate<Control>();
+				_content.AddChild(infoContainerInstance);
+				infoContainerInstance.GetNode<Label>("%Title").Text = button.Name;
 				await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
 				infoContainerInstance.Scale = new Vector2(.01f, .01f);
 				infoContainerInstance.PivotOffset = infoContainerInstance.Size / 2;
@@ -60,7 +77,7 @@ public partial class ConceptInfoLoader : VBoxContainer
 		};
 	}
 
-	
+
 	private void TweenInfoContainerEntry(Control infoContainerInstance)
 	{
 		Tween tween = GetTree().CreateTween();

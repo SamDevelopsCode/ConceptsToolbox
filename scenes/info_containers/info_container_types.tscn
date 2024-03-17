@@ -7,10 +7,7 @@
 [node name="MarginContainer" parent="BGPanel" index="0"]
 metadata/_edit_use_anchors_ = true
 
-[node name="Title" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="0"]
-text = "Types"
-
-[node name="Intro" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="1"]
-text = "Types explanation goes here"
+[node name="Main" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="1"]
+text = "Types go here"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
