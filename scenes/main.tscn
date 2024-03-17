@@ -173,9 +173,9 @@ vertical_scroll_mode = 3
 layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("8_4x1iw")
-_dotnetInfoScene = ExtResource("10_humx5")
-_variablesInfoScene = ExtResource("10_pjp6a")
-_typesInfoScene = ExtResource("9_yrdkh")
+_dotnetContentScene = ExtResource("10_humx5")
+_variablesContentScene = ExtResource("10_pjp6a")
+_typesContentScene = ExtResource("9_yrdkh")
 _content = NodePath("../../../Content")
 
 [node name="DotNet" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons"]
