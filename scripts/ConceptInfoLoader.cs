@@ -62,6 +62,60 @@ public partial class ConceptInfoLoader : VBoxContainer
 			case "Types":
 				CreateConceptContentInstance(_typesContentScene, buttonName);
 				break;
+			case "Strings":
+				CreateConceptContentInstance(_typesContentScene, buttonName);
+				break;
+			case "Arrays":
+				CreateConceptContentInstance(_typesContentScene, buttonName);
+				break;
+			case "Switches":
+				CreateConceptContentInstance(_typesContentScene, buttonName);
+				break;
+			case "Loops":
+				CreateConceptContentInstance(_typesContentScene, buttonName);
+				break;
+			case "Accessors":
+				CreateConceptContentInstance(_typesContentScene, buttonName);
+				break;
+			case "Classes":
+				CreateConceptContentInstance(_typesContentScene, buttonName);
+				break;
+			case "Properties":
+				CreateConceptContentInstance(_typesContentScene, buttonName);
+				break;
+			case "Static":
+				CreateConceptContentInstance(_typesContentScene, buttonName);
+				break;
+			case "Inheritance":
+				CreateConceptContentInstance(_typesContentScene, buttonName);
+				break;
+			case "Polymorphism":
+				CreateConceptContentInstance(_typesContentScene, buttonName);
+				break;
+			case "Null References":
+				CreateConceptContentInstance(_typesContentScene, buttonName);
+				break;
+			case "Memory Management":
+				CreateConceptContentInstance(_typesContentScene, buttonName);
+				break;
+			case "Enumerations":
+				CreateConceptContentInstance(_typesContentScene, buttonName);
+				break;
+			case "Tuples":
+				CreateConceptContentInstance(_typesContentScene, buttonName);
+				break;
+			case "Interfaces":
+				CreateConceptContentInstance(_typesContentScene, buttonName);
+				break;
+			case "Structs":
+				CreateConceptContentInstance(_typesContentScene, buttonName);
+				break;
+			case "Records":
+				CreateConceptContentInstance(_typesContentScene, buttonName);
+				break;
+			case "Generics":
+				CreateConceptContentInstance(_typesContentScene, buttonName);
+				break;
 		};
 	}
 

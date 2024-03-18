@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://radfpo20nsw2"]
+
+[ext_resource type="PackedScene" uid="uid://cx75ggvi8ih8i" path="res://scenes/content/content.tscn" id="1_3fipb"]
+
+[node name="Null References" instance=ExtResource("1_3fipb")]
