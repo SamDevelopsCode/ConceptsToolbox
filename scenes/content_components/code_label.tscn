@@ -30,4 +30,5 @@ text = "string name = \"Sam\";
 int numberOfHumans = 1;
 float gpa = 2.7f;"
 fit_content = true
+context_menu_enabled = true
 selection_enabled = true

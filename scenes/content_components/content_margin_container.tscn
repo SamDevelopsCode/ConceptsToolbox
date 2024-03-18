@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://bcim245yjlwwf"]
+[gd_scene load_steps=2 format=3 uid="uid://bcim245yjlwwf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ajnkk"]
 
 [node name="ContentContainer" type="MarginContainer"]
 auto_translate_mode = 1
@@ -10,6 +12,7 @@ theme_override_constants/margin_bottom = 10
 auto_translate_mode = 1
 layout_mode = 2
 focus_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ajnkk")
 bbcode_enabled = true
 fit_content = true
 selection_enabled = true

@@ -14,13 +14,9 @@ layout_mode = 2
 [node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer" index="0"]
 text = "Types in programming are like containers that hold different kinds of information. They decide what kind of data you can put inside them and what you can do with that data. Think of them as categories: you have types for numbers, types for text, types for true/false values, and so on. Some types are simple, like numbers and letters, while others are more complex, like lists or groups of data. 
 
-Understanding types is fundamental for writing robust and maintainable code. Proper use of types can help prevent bugs, improve code readability, and facilitate code reuse. Additionally, modern programming languages often provide mechanisms for type conversion and type inference, allowing developers to work with types more conveniently while maintaining the benefits of strong typing."
+Understanding types is fundamental for writing robust and maintainable code. Proper use of types can help prevent bugs, improve code readability, and facilitate code reuse. Additionally, modern programming languages often provide mechanisms for type conversion and type inference, allowing developers to work with types more conveniently while maintaining the benefits of strong typing.
 
-[node name="ContentContainer2" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="2" instance=ExtResource("2_lvw3p")]
-layout_mode = 2
-
-[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer2" index="0"]
-text = "Some basic types commonly found in programming - 
+Some basic types commonly found in programming - 
 
 [ul]
 Integer: Used to represent whole numbers (e.g., -3, 0, 42).
@@ -36,4 +32,3 @@ Class: A blueprint for creating objects that contain methods and properties.
 [/ul]"
 
 [editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer"]
-[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer2"]
