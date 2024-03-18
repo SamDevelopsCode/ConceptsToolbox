@@ -1,5 +1,175 @@
-[gd_scene load_steps=2 format=3 uid="uid://br5u6kua4kc2"]
+[gd_scene load_steps=4 format=3 uid="uid://br5u6kua4kc2"]
 
 [ext_resource type="PackedScene" uid="uid://cx75ggvi8ih8i" path="res://scenes/content/content.tscn" id="1_w2vxd"]
+[ext_resource type="PackedScene" uid="uid://bcim245yjlwwf" path="res://scenes/content_components/content_margin_container.tscn" id="2_ov6kj"]
+[ext_resource type="PackedScene" uid="uid://bpvvyvfjeb3uy" path="res://scenes/content_components/code_label.tscn" id="3_ho62x"]
 
 [node name="Arrays" instance=ExtResource("1_w2vxd")]
+
+[node name="ContentContainer" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="1" instance=ExtResource("2_ov6kj")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer" index="0"]
+text = "Arrays are essential data structures in C# that allow you to store a collection of elements of the same type. They provide a convenient way to manage multiple values under a single variable name. 
+
+Some basic concepts and operations involving arrays in C#-
+
+1. Declaring Arrays:"
+
+[node name="CodeLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="2" instance=ExtResource("3_ho62x")]
+layout_mode = 2
+text = "int[] numbers = new int[5]; // Array of integers with 5 elements
+string[] names = new string[3]; // Array of strings with 3 elements
+double[] prices = { 10.5, 20.3, 15.2 }; // Array initialization with values"
+
+[node name="ContentContainer2" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="3" instance=ExtResource("2_ov6kj")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer2" index="0"]
+text = "2. Accessing Array Elements:"
+
+[node name="CodeLabel2" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="4" instance=ExtResource("3_ho62x")]
+layout_mode = 2
+text = "int[] numbers = { 10, 20, 30, 40, 50 };
+int firstNumber = numbers[0]; // Accessing the first element
+int lastNumber = numbers[numbers.Length - 1]; // Accessing the last element
+Console.WriteLine(firstNumber); // Output: 10
+Console.WriteLine(lastNumber); // Output: 50"
+
+[node name="ContentContainer3" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="5" instance=ExtResource("2_ov6kj")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer3" index="0"]
+text = "3. Iterating Through Arrays:"
+
+[node name="CodeLabel3" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="6" instance=ExtResource("3_ho62x")]
+layout_mode = 2
+text = "string[] fruits = { \"apple\", \"banana\", \"orange\" };
+foreach (string fruit in fruits)
+{
+    Console.WriteLine(fruit);
+}
+// Output:
+// apple
+// banana
+// orange"
+
+[node name="ContentContainer4" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="7" instance=ExtResource("2_ov6kj")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer4" index="0"]
+text = "4. Modifying Array Elements:"
+
+[node name="CodeLabel4" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="8" instance=ExtResource("3_ho62x")]
+layout_mode = 2
+text = "int[] numbers = { 1, 2, 3, 4, 5 };
+numbers[2] = 10; // Modifying the third element
+Console.WriteLine(numbers[2]); // Output: 10"
+
+[node name="ContentContainer5" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="9" instance=ExtResource("2_ov6kj")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer5" index="0"]
+text = "5. Array Length:"
+
+[node name="CodeLabel5" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="10" instance=ExtResource("3_ho62x")]
+layout_mode = 2
+text = "string[] colors = { \"red\", \"green\", \"blue\" };
+int length = colors.Length; // Length of the array
+Console.WriteLine(length); // Output: 3"
+
+[node name="ContentContainer6" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="11" instance=ExtResource("2_ov6kj")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer6" index="0"]
+text = "6. Multidimensional Arrays:"
+
+[node name="CodeLabel6" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="12" instance=ExtResource("3_ho62x")]
+layout_mode = 2
+text = "int[,] matrix = new int[3, 2]; // 2D array with 3 rows and 2 columns
+matrix[0, 0] = 1;
+matrix[0, 1] = 2;
+// Accessing elements
+int element = matrix[0, 1]; // Accessing element at row 0, column 1
+Console.WriteLine(element); // Output: 2"
+
+[node name="ContentContainer7" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="13" instance=ExtResource("2_ov6kj")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer7" index="0"]
+text = "7. Jagged Arrays:"
+
+[node name="CodeLabel7" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="14" instance=ExtResource("3_ho62x")]
+layout_mode = 2
+text = "int[][] jaggedArray = new int[2][];
+jaggedArray[0] = new int[] { 1, 2, 3 };
+jaggedArray[1] = new int[] { 4, 5, 6, 7 };
+// Accessing elements
+int element = jaggedArray[1][2]; // Accessing element in the second array, at index 2
+Console.WriteLine(element); // Output: 6"
+
+[node name="ContentContainer8" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="15" instance=ExtResource("2_ov6kj")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer8" index="0"]
+text = "8. Array.Copy Method:"
+
+[node name="CodeLabel8" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="16" instance=ExtResource("3_ho62x")]
+layout_mode = 2
+text = "int[] sourceArray = { 1, 2, 3, 4, 5 };
+int[] destinationArray = new int[5];
+Array.Copy(sourceArray, destinationArray, 5); // Copying elements from source to destination
+foreach (int num in destinationArray)
+{
+    Console.WriteLine(num);
+}
+// Output:
+// 1
+// 2
+// 3
+// 4
+// 5"
+
+[node name="ContentContainer9" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="17" instance=ExtResource("2_ov6kj")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer9" index="0"]
+text = "9. Searching in Arrays:"
+
+[node name="CodeLabel9" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="18" instance=ExtResource("3_ho62x")]
+layout_mode = 2
+text = "string[] names = { \"Alice\", \"Bob\", \"Charlie\", \"David\" };
+int index = Array.IndexOf(names, \"Charlie\"); // Finding index of an element
+Console.WriteLine(index); // Output: 2"
+
+[node name="ContentContainer10" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="19" instance=ExtResource("2_ov6kj")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer10" index="0"]
+text = "10. Sorting Arrays:"
+
+[node name="CodeLabel10" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="20" instance=ExtResource("3_ho62x")]
+layout_mode = 2
+text = "int[] numbers = { 5, 3, 1, 4, 2 };
+Array.Sort(numbers); // Sorting elements in ascending order
+foreach (int num in numbers)
+{
+    Console.WriteLine(num);
+}
+// Output:
+// 1
+// 2
+// 3
+// 4
+// 5"
+
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer"]
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer2"]
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer3"]
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer4"]
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer5"]
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer6"]
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer7"]
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer8"]
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer9"]
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer10"]
