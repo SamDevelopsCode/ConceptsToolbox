@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://hgci7p5fdv6y"]
+[gd_scene load_steps=34 format=3 uid="uid://hgci7p5fdv6y"]
 
 [ext_resource type="Texture2D" uid="uid://ik7m64txpp33" path="res://art/menu_icon.svg" id="2_4tn1m"]
 [ext_resource type="Script" path="res://scripts/MainControls.cs" id="2_c630d"]
@@ -11,6 +11,23 @@
 [ext_resource type="PackedScene" uid="uid://5nj1k6datt5u" path="res://scenes/content/content_types.tscn" id="9_yrdkh"]
 [ext_resource type="PackedScene" uid="uid://csqf351jb25ky" path="res://scenes/content/content_dotnet.tscn" id="10_humx5"]
 [ext_resource type="PackedScene" uid="uid://dxhdr4rhia1in" path="res://scenes/content/content_variables.tscn" id="10_pjp6a"]
+[ext_resource type="PackedScene" uid="uid://b3tqno2us01ni" path="res://scenes/content/content_strings.tscn" id="12_rbs5p"]
+[ext_resource type="PackedScene" uid="uid://br5u6kua4kc2" path="res://scenes/content/content_arrays.tscn" id="13_tlamb"]
+[ext_resource type="PackedScene" uid="uid://o8o1tlhtih8l" path="res://scenes/content/content_switches.tscn" id="14_pi4wc"]
+[ext_resource type="PackedScene" uid="uid://cquhfkt536mlk" path="res://scenes/content/content_loops.tscn" id="15_305mv"]
+[ext_resource type="PackedScene" uid="uid://qjw3nle7oi62" path="res://scenes/content/content_accessors.tscn" id="16_m4eqc"]
+[ext_resource type="PackedScene" uid="uid://bjrnek1jeg0il" path="res://scenes/content/content_classes.tscn" id="17_wloau"]
+[ext_resource type="PackedScene" uid="uid://vfp2tbiuuaks" path="res://scenes/content/content_properties.tscn" id="18_6jpf7"]
+[ext_resource type="PackedScene" uid="uid://vqnbjk2d12l5" path="res://scenes/content/content_static.tscn" id="19_mxr5k"]
+[ext_resource type="PackedScene" uid="uid://c5norbhlt6dwy" path="res://scenes/content/content_inheritance.tscn" id="20_21opq"]
+[ext_resource type="PackedScene" uid="uid://facexbwr3q5d" path="res://scenes/content/content_polymorphism.tscn" id="21_wehfh"]
+[ext_resource type="PackedScene" uid="uid://radfpo20nsw2" path="res://scenes/content/content_null_references.tscn" id="22_prtke"]
+[ext_resource type="PackedScene" uid="uid://c6jj23ooiem27" path="res://scenes/content/content_memory_management.tscn" id="23_sa4cm"]
+[ext_resource type="PackedScene" uid="uid://cs85gh7uivwwk" path="res://scenes/content/content_enumerations.tscn" id="24_nco2f"]
+[ext_resource type="PackedScene" uid="uid://ddmn85x3illpe" path="res://scenes/content/content_tuples.tscn" id="25_g51pf"]
+[ext_resource type="PackedScene" uid="uid://chql1xd0m44aa" path="res://scenes/content/content_interfaces.tscn" id="26_uu22w"]
+[ext_resource type="PackedScene" uid="uid://c142d5c0qhqk1" path="res://scenes/content/content_structs.tscn" id="27_ltb81"]
+[ext_resource type="PackedScene" uid="uid://dd6me05n04ft1" path="res://scenes/content/content_generics.tscn" id="28_klv0l"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_28k4j"]
 bg_color = Color(0.0352941, 0.0392157, 0.0745098, 1)
@@ -176,6 +193,24 @@ script = ExtResource("8_4x1iw")
 _dotnetContentScene = ExtResource("10_humx5")
 _variablesContentScene = ExtResource("10_pjp6a")
 _typesContentScene = ExtResource("9_yrdkh")
+_stringsContentScene = ExtResource("12_rbs5p")
+_arraysContentScene = ExtResource("13_tlamb")
+_switchesContentScene = ExtResource("14_pi4wc")
+_loopsContentScene = ExtResource("15_305mv")
+_accessorsContentScene = ExtResource("16_m4eqc")
+_classesContentScene = ExtResource("17_wloau")
+_propertiesContentScene = ExtResource("18_6jpf7")
+_staticContentScene = ExtResource("19_mxr5k")
+_inheritanceContentScene = ExtResource("20_21opq")
+_polymorphismContentScene = ExtResource("21_wehfh")
+_nullReferencesContentScene = ExtResource("22_prtke")
+_memoryManagementContentScene = ExtResource("23_sa4cm")
+_enumerationsContentScene = ExtResource("24_nco2f")
+_tuplesContentScene = ExtResource("25_g51pf")
+_interfacesContentScene = ExtResource("26_uu22w")
+_structsContentScene = ExtResource("27_ltb81")
+_recordsContentScene = ExtResource("27_ltb81")
+_genericsContentScene = ExtResource("28_klv0l")
 _content = NodePath("../../../Content")
 
 [node name="DotNet" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons"]

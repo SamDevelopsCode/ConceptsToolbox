@@ -8,6 +8,24 @@ public partial class ConceptInfoLoader : VBoxContainer
 	[Export] private PackedScene _dotnetContentScene;
 	[Export] private PackedScene _variablesContentScene;
 	[Export] private PackedScene _typesContentScene;
+	[Export] private PackedScene _stringsContentScene;
+	[Export] private PackedScene _arraysContentScene;
+	[Export] private PackedScene _switchesContentScene;
+	[Export] private PackedScene _loopsContentScene;
+	[Export] private PackedScene _accessorsContentScene;
+	[Export] private PackedScene _classesContentScene;
+	[Export] private PackedScene _propertiesContentScene;
+	[Export] private PackedScene _staticContentScene;
+	[Export] private PackedScene _inheritanceContentScene;
+	[Export] private PackedScene _polymorphismContentScene;
+	[Export] private PackedScene _nullReferencesContentScene;
+	[Export] private PackedScene _memoryManagementContentScene;
+	[Export] private PackedScene _enumerationsContentScene;
+	[Export] private PackedScene _tuplesContentScene;
+	[Export] private PackedScene _interfacesContentScene;
+	[Export] private PackedScene _structsContentScene;
+	[Export] private PackedScene _recordsContentScene;
+	[Export] private PackedScene _genericsContentScene;
 	
 	[ExportCategory("Main Content Container")]
 	[Export] private VBoxContainer _content;
@@ -63,58 +81,58 @@ public partial class ConceptInfoLoader : VBoxContainer
 				CreateConceptContentInstance(_typesContentScene, buttonName);
 				break;
 			case "Strings":
-				CreateConceptContentInstance(_typesContentScene, buttonName);
+				CreateConceptContentInstance(_stringsContentScene, buttonName);
 				break;
 			case "Arrays":
-				CreateConceptContentInstance(_typesContentScene, buttonName);
+				CreateConceptContentInstance(_arraysContentScene, buttonName);
 				break;
 			case "Switches":
-				CreateConceptContentInstance(_typesContentScene, buttonName);
+				CreateConceptContentInstance(_switchesContentScene, buttonName);
 				break;
 			case "Loops":
-				CreateConceptContentInstance(_typesContentScene, buttonName);
+				CreateConceptContentInstance(_loopsContentScene, buttonName);
 				break;
 			case "Accessors":
-				CreateConceptContentInstance(_typesContentScene, buttonName);
+				CreateConceptContentInstance(_accessorsContentScene, buttonName);
 				break;
 			case "Classes":
-				CreateConceptContentInstance(_typesContentScene, buttonName);
+				CreateConceptContentInstance(_classesContentScene, buttonName);
 				break;
 			case "Properties":
-				CreateConceptContentInstance(_typesContentScene, buttonName);
+				CreateConceptContentInstance(_propertiesContentScene, buttonName);
 				break;
 			case "Static":
-				CreateConceptContentInstance(_typesContentScene, buttonName);
+				CreateConceptContentInstance(_staticContentScene, buttonName);
 				break;
 			case "Inheritance":
-				CreateConceptContentInstance(_typesContentScene, buttonName);
+				CreateConceptContentInstance(_inheritanceContentScene, buttonName);
 				break;
 			case "Polymorphism":
-				CreateConceptContentInstance(_typesContentScene, buttonName);
+				CreateConceptContentInstance(_polymorphismContentScene, buttonName);
 				break;
 			case "Null References":
-				CreateConceptContentInstance(_typesContentScene, buttonName);
+				CreateConceptContentInstance(_nullReferencesContentScene, buttonName);
 				break;
 			case "Memory Management":
-				CreateConceptContentInstance(_typesContentScene, buttonName);
+				CreateConceptContentInstance(_memoryManagementContentScene, buttonName);
 				break;
 			case "Enumerations":
-				CreateConceptContentInstance(_typesContentScene, buttonName);
+				CreateConceptContentInstance(_enumerationsContentScene, buttonName);
 				break;
 			case "Tuples":
-				CreateConceptContentInstance(_typesContentScene, buttonName);
+				CreateConceptContentInstance(_tuplesContentScene, buttonName);
 				break;
 			case "Interfaces":
-				CreateConceptContentInstance(_typesContentScene, buttonName);
+				CreateConceptContentInstance(_interfacesContentScene, buttonName);
 				break;
 			case "Structs":
-				CreateConceptContentInstance(_typesContentScene, buttonName);
+				CreateConceptContentInstance(_structsContentScene, buttonName);
 				break;
 			case "Records":
-				CreateConceptContentInstance(_typesContentScene, buttonName);
+				CreateConceptContentInstance(_recordsContentScene, buttonName);
 				break;
 			case "Generics":
-				CreateConceptContentInstance(_typesContentScene, buttonName);
+				CreateConceptContentInstance(_genericsContentScene, buttonName);
 				break;
 		};
 	}
