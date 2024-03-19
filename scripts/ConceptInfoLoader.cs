@@ -2,34 +2,14 @@ using Godot;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using PCC.scripts;
 
 public partial class ConceptInfoLoader : VBoxContainer
 {
-	[Export] private PackedScene _dotnetContentScene;
-	[Export] private PackedScene _variablesContentScene;
-	[Export] private PackedScene _typesContentScene;
-	[Export] private PackedScene _stringsContentScene;
-	[Export] private PackedScene _arraysContentScene;
-	[Export] private PackedScene _switchesContentScene;
-	[Export] private PackedScene _loopsContentScene;
-	[Export] private PackedScene _accessorsContentScene;
-	[Export] private PackedScene _classesContentScene;
-	[Export] private PackedScene _propertiesContentScene;
-	[Export] private PackedScene _staticContentScene;
-	[Export] private PackedScene _inheritanceContentScene;
-	[Export] private PackedScene _polymorphismContentScene;
-	[Export] private PackedScene _nullReferencesContentScene;
-	[Export] private PackedScene _memoryManagementContentScene;
-	[Export] private PackedScene _enumerationsContentScene;
-	[Export] private PackedScene _tuplesContentScene;
-	[Export] private PackedScene _interfacesContentScene;
-	[Export] private PackedScene _structsContentScene;
-	[Export] private PackedScene _recordsContentScene;
-	[Export] private PackedScene _genericsContentScene;
+	[Export] private ConceptScenes _conceptScenes;
 	
 	[ExportCategory("Main Content Container")]
-	[Export] private VBoxContainer _content;
-
+	[Export] private VBoxContainer _contentContainer;
 
 	public override void _Ready()
 	{
@@ -47,14 +27,16 @@ public partial class ConceptInfoLoader : VBoxContainer
 			child.TooltipText = child.Name;
 			child.Pressed += () => OnButtonPressed(child);
 		}
+		
+		_conceptScenes.Initialize();
 	}
 
 	
 	private async void OnButtonPressed(Button button)
 	{
-		if (_content.GetChildCount() > 0)
+		if (_contentContainer.GetChildCount() > 0)
 		{
-			var currentConceptContentInstance = _content.GetChild(0);
+			var currentConceptContentInstance = _contentContainer.GetChild(0);
 			if (currentConceptContentInstance.Name == button.Name)
 			{
 				return;
@@ -63,85 +45,14 @@ public partial class ConceptInfoLoader : VBoxContainer
 			await TweenConceptContentInstanceExit(currentConceptContentInstance);
 		}
 
-		AddConceptContentPage(button.Name);
+		AddConceptContentPage(_conceptScenes.ContentScenesDictionary[button.Name], button.Name);
 	}
 
 	
-	private void AddConceptContentPage(string buttonName)
-	{
-		switch (buttonName)
-		{ 
-			case "DotNet":
-				CreateConceptContentInstance(_dotnetContentScene, buttonName);
-				break;
-			case "Variables":
-				CreateConceptContentInstance(_variablesContentScene, buttonName);
-				break;
-			case "Types":
-				CreateConceptContentInstance(_typesContentScene, buttonName);
-				break;
-			case "Strings":
-				CreateConceptContentInstance(_stringsContentScene, buttonName);
-				break;
-			case "Arrays":
-				CreateConceptContentInstance(_arraysContentScene, buttonName);
-				break;
-			case "Switches":
-				CreateConceptContentInstance(_switchesContentScene, buttonName);
-				break;
-			case "Loops":
-				CreateConceptContentInstance(_loopsContentScene, buttonName);
-				break;
-			case "Accessors":
-				CreateConceptContentInstance(_accessorsContentScene, buttonName);
-				break;
-			case "Classes":
-				CreateConceptContentInstance(_classesContentScene, buttonName);
-				break;
-			case "Properties":
-				CreateConceptContentInstance(_propertiesContentScene, buttonName);
-				break;
-			case "Static":
-				CreateConceptContentInstance(_staticContentScene, buttonName);
-				break;
-			case "Inheritance":
-				CreateConceptContentInstance(_inheritanceContentScene, buttonName);
-				break;
-			case "Polymorphism":
-				CreateConceptContentInstance(_polymorphismContentScene, buttonName);
-				break;
-			case "Null References":
-				CreateConceptContentInstance(_nullReferencesContentScene, buttonName);
-				break;
-			case "Memory Management":
-				CreateConceptContentInstance(_memoryManagementContentScene, buttonName);
-				break;
-			case "Enumerations":
-				CreateConceptContentInstance(_enumerationsContentScene, buttonName);
-				break;
-			case "Tuples":
-				CreateConceptContentInstance(_tuplesContentScene, buttonName);
-				break;
-			case "Interfaces":
-				CreateConceptContentInstance(_interfacesContentScene, buttonName);
-				break;
-			case "Structs":
-				CreateConceptContentInstance(_structsContentScene, buttonName);
-				break;
-			case "Records":
-				CreateConceptContentInstance(_recordsContentScene, buttonName);
-				break;
-			case "Generics":
-				CreateConceptContentInstance(_genericsContentScene, buttonName);
-				break;
-		};
-	}
-
-	
-	private async void CreateConceptContentInstance(PackedScene packedScene, string buttonName)
+	private async void AddConceptContentPage(PackedScene packedScene, string buttonName)
 	{
 		Control newConceptContentInstance = packedScene.Instantiate<Control>();
-		_content.AddChild(newConceptContentInstance);
+		_contentContainer.AddChild(newConceptContentInstance);
 		
 		//using modulation in method instead of hiding/showing because of weird flickering effect
 		newConceptContentInstance.Modulate = new Color(0, 0, 0, 0);
