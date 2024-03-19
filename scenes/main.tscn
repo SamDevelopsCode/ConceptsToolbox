@@ -7,8 +7,8 @@
 [ext_resource type="Script" path="res://scripts/WindowDragger.cs" id="4_70boq"]
 [ext_resource type="Texture2D" uid="uid://diqaupjpwkv12" path="res://art/maximize_icon.svg" id="4_fh14i"]
 [ext_resource type="Theme" uid="uid://hk1daviq14ti" path="res://themes/main.tres" id="5_rd3j3"]
-[ext_resource type="Script" path="res://scripts/ConceptInfoLoader.cs" id="8_4x1iw"]
-[ext_resource type="Resource" uid="uid://vrd7cy8lccbd" path="res://scripts/concept_scenes_data.tres" id="9_eemwl"]
+[ext_resource type="Script" path="res://scripts/ConceptSceneLoader.cs" id="8_jfubk"]
+[ext_resource type="Resource" uid="uid://vrd7cy8lccbd" path="res://resources/concept_scenes_data.tres" id="9_eemwl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_28k4j"]
 bg_color = Color(0.0352941, 0.0392157, 0.0745098, 1)
@@ -170,7 +170,7 @@ vertical_scroll_mode = 3
 [node name="ConceptButtons" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer" node_paths=PackedStringArray("_contentContainer")]
 layout_mode = 2
 size_flags_horizontal = 3
-script = ExtResource("8_4x1iw")
+script = ExtResource("8_jfubk")
 _conceptScenes = ExtResource("9_eemwl")
 _contentContainer = NodePath("../../../Content")
 

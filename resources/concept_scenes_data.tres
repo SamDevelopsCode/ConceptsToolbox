@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ConceptScenes" load_steps=23 format=3 uid="uid://vrd7cy8lccbd"]
 
-[ext_resource type="Script" path="res://scripts/ConceptScenes.cs" id="1_4i2eu"]
+[ext_resource type="Script" path="res://resources/ConceptScenes.cs" id="1_4i2eu"]
 [ext_resource type="PackedScene" uid="uid://qjw3nle7oi62" path="res://scenes/content/content_accessors.tscn" id="1_f0nge"]
 [ext_resource type="PackedScene" uid="uid://br5u6kua4kc2" path="res://scenes/content/content_arrays.tscn" id="2_ewhkl"]
 [ext_resource type="PackedScene" uid="uid://bjrnek1jeg0il" path="res://scenes/content/content_classes.tscn" id="3_43iet"]

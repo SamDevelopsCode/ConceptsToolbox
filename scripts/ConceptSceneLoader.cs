@@ -4,12 +4,14 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using PCC.scripts;
 
-public partial class ConceptInfoLoader : VBoxContainer
+public partial class ConceptSceneLoader : VBoxContainer
 {
 	[Export] private ConceptScenes _conceptScenes;
 	
 	[ExportCategory("Main Content Container")]
 	[Export] private VBoxContainer _contentContainer;
+
+	private bool _transitioningContentScenes = false;
 
 	public override void _Ready()
 	{
@@ -34,9 +36,12 @@ public partial class ConceptInfoLoader : VBoxContainer
 	
 	private async void OnButtonPressed(Button button)
 	{
+		if (_transitioningContentScenes) return;
+		
 		if (_contentContainer.GetChildCount() > 0)
 		{
 			var currentConceptContentInstance = _contentContainer.GetChild(0);
+
 			if (currentConceptContentInstance.Name == button.Name)
 			{
 				return;
@@ -85,12 +90,16 @@ public partial class ConceptInfoLoader : VBoxContainer
 	
 	private async Task TweenConceptContentInstanceExit(Node currentConceptContentInstance)
 	{
+		_transitioningContentScenes = true;
 		Tween tween = GetTree().CreateTween();
 		tween.SetParallel();
 		tween.TweenProperty(currentConceptContentInstance, "scale:x", 0.01f, .3f);
 		tween.TweenProperty(currentConceptContentInstance, "scale:y", 0.01f, .3f);
 		await ToSignal(tween, Tween.SignalName.Finished);
+		
 		currentConceptContentInstance.QueueFree();
-		await ToSignal(currentConceptContentInstance, Node.SignalName.TreeExited);
+		
+		await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
+		_transitioningContentScenes = false;
 	}
 }
