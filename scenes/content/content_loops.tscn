@@ -1,5 +1,126 @@
-[gd_scene load_steps=2 format=3 uid="uid://cquhfkt536mlk"]
+[gd_scene load_steps=4 format=3 uid="uid://cquhfkt536mlk"]
 
 [ext_resource type="PackedScene" uid="uid://cx75ggvi8ih8i" path="res://scenes/content/content.tscn" id="1_4k7pn"]
+[ext_resource type="PackedScene" uid="uid://bcim245yjlwwf" path="res://scenes/content_components/content_margin_container.tscn" id="2_hpwq4"]
+[ext_resource type="PackedScene" uid="uid://bpvvyvfjeb3uy" path="res://scenes/content_components/code_label.tscn" id="3_8h1h2"]
 
 [node name="Loops" instance=ExtResource("1_4k7pn")]
+
+[node name="ContentContainer" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="1" instance=ExtResource("2_hpwq4")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer" index="0"]
+text = "Loops in C# allow you to execute a block of code repeatedly. Here's some various types of loops:
+
+1. [b]'for'[/b] Loop:"
+
+[node name="CodeLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="2" instance=ExtResource("3_8h1h2")]
+layout_mode = 2
+text = "for (int i = 0; i < 5; i++)
+{
+    Console.WriteLine(i);
+}"
+
+[node name="ContentContainer2" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="3" instance=ExtResource("2_hpwq4")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer2" index="0"]
+text = "This loop initializes a variable `i` to 0, executes the loop body as long as `i` is less than 5, and increments `i` by 1 in each iteration."
+
+[node name="ContentContainer3" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="4" instance=ExtResource("2_hpwq4")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer3" index="0"]
+text = "2. [b]`while`[/b] Loop:"
+
+[node name="CodeLabel2" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="5" instance=ExtResource("3_8h1h2")]
+layout_mode = 2
+text = "int j = 0;
+while (j < 5)
+{
+    Console.WriteLine(j);
+    j++;
+}
+"
+
+[node name="ContentContainer4" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="6" instance=ExtResource("2_hpwq4")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer4" index="0"]
+text = "This loop executes the loop body as long as the condition `j < 5` is true. It's useful when you want to repeat a block of code an indefinite number of times."
+
+[node name="ContentContainer5" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="7" instance=ExtResource("2_hpwq4")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer5" index="0"]
+text = "3. [b]`do-while`[/b] Loop:"
+
+[node name="CodeLabel3" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="8" instance=ExtResource("3_8h1h2")]
+layout_mode = 2
+text = "int k = 0;
+do
+{
+    Console.WriteLine(k);
+    k++;
+} while (k < 5);"
+
+[node name="ContentContainer6" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="9" instance=ExtResource("2_hpwq4")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer6" index="0"]
+text = "This loop is similar to the `while` loop, but the condition is evaluated after the loop body, so the loop body executes at least once even if the condition is false.
+"
+
+[node name="ContentContainer7" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="10" instance=ExtResource("2_hpwq4")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer7" index="0"]
+text = "4. [b]`foreach`[/b] Loop:
+"
+
+[node name="CodeLabel4" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="11" instance=ExtResource("3_8h1h2")]
+layout_mode = 2
+text = "int[] numbers = { 1, 2, 3, 4, 5 };
+foreach (int num in numbers)
+{
+    Console.WriteLine(num);
+}"
+
+[node name="ContentContainer8" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="12" instance=ExtResource("2_hpwq4")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer8" index="0"]
+text = "This loop iterates over elements of a collection (such as arrays, lists, etc.) without needing to know the index of each element. It's particularly useful for iterating through arrays and collections."
+
+[node name="ContentContainer9" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="13" instance=ExtResource("2_hpwq4")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer9" index="0"]
+text = "5. [b]'nested'[/b] Loops:"
+
+[node name="CodeLabel5" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="14" instance=ExtResource("3_8h1h2")]
+layout_mode = 2
+text = "for (int x = 0; x < 3; x++)
+{
+    for (int y = 0; y < 2; y++)
+    {
+        Console.WriteLine($\"({x}, {y})\");
+    }
+}"
+
+[node name="ContentContainer10" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="15" instance=ExtResource("2_hpwq4")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer10" index="0"]
+text = "You can nest loops within each other to perform more complex iterations. In this example, the inner loop runs twice for each iteration of the outer loop."
+
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer"]
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer2"]
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer3"]
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer4"]
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer5"]
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer6"]
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer7"]
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer8"]
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer9"]
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer10"]

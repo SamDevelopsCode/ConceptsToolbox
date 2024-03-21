@@ -1,5 +1,187 @@
-[gd_scene load_steps=2 format=3 uid="uid://o8o1tlhtih8l"]
+[gd_scene load_steps=4 format=3 uid="uid://o8o1tlhtih8l"]
 
 [ext_resource type="PackedScene" uid="uid://cx75ggvi8ih8i" path="res://scenes/content/content.tscn" id="1_dclvu"]
+[ext_resource type="PackedScene" uid="uid://bcim245yjlwwf" path="res://scenes/content_components/content_margin_container.tscn" id="2_d46mr"]
+[ext_resource type="PackedScene" uid="uid://bpvvyvfjeb3uy" path="res://scenes/content_components/code_label.tscn" id="3_xa0ws"]
 
 [node name="Switches" instance=ExtResource("1_dclvu")]
+
+[node name="ContentContainer" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="1" instance=ExtResource("2_d46mr")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer" index="0"]
+text = "The `switch` statement allows you to execute different blocks of code based on the value of an expression.
+
+1. Basic `switch` Statement:"
+
+[node name="CodeLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="2" instance=ExtResource("3_xa0ws")]
+layout_mode = 2
+text = "int num = 2;
+switch (num)
+{
+    case 1:
+        Console.WriteLine(\"One\");
+        break;
+    case 2:
+        Console.WriteLine(\"Two\");
+        break;
+    case 3:
+        Console.WriteLine(\"Three\");
+        break;
+    default:
+        Console.WriteLine(\"Default Case\");
+        break;
+}"
+
+[node name="ContentContainer2" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="3" instance=ExtResource("2_d46mr")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer2" index="0"]
+text = "In this example, the `switch` statement evaluates the value of `num` and executes the corresponding `case` block. If no match is found, the `default` case is executed. Each `case` block ends with a `break` statement to prevent fall-through.
+
+2. Multiple Case Labels:"
+
+[node name="CodeLabel2" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="4" instance=ExtResource("3_xa0ws")]
+layout_mode = 2
+text = "int day = 5;
+switch (day)
+{
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+        Console.WriteLine(\"Weekday\");
+        break;
+    case 6:
+    case 7:
+        Console.WriteLine(\"Weekend\");
+        break;
+    default:
+        Console.WriteLine(\"Invalid Day\");
+        break;
+}
+"
+
+[node name="ContentContainer3" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="5" instance=ExtResource("2_d46mr")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer3" index="0"]
+text = "You can have multiple `case` labels that execute the same block of code. In this example, days 1 to 5 are considered weekdays, and days 6 and 7 are considered weekends.
+
+3. `switch` with Enum:"
+
+[node name="CodeLabel3" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="6" instance=ExtResource("3_xa0ws")]
+layout_mode = 2
+text = "enum Season { Spring, Summer, Autumn, Winter };
+Season currentSeason = Season.Summer;
+switch (currentSeason)
+{
+    case Season.Spring:
+        Console.WriteLine(\"Spring is here!\");
+        break;
+    case Season.Summer:
+        Console.WriteLine(\"Summer is here!\");
+        break;
+    case Season.Autumn:
+        Console.WriteLine(\"Autumn is here!\");
+        break;
+    case Season.Winter:
+        Console.WriteLine(\"Winter is here!\");
+        break;
+    default:
+        Console.WriteLine(\"Unknown Season\");
+        break;
+}
+"
+
+[node name="ContentContainer4" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="7" instance=ExtResource("2_d46mr")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer4" index="0"]
+text = "4. `switch` with Pattern Matching:"
+
+[node name="CodeLabel4" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="8" instance=ExtResource("3_xa0ws")]
+layout_mode = 2
+text = "object obj = \"hello\";
+switch (obj)
+{
+    case int i:
+        Console.WriteLine($\"An integer: {i}\");
+        break;
+    case string s:
+        Console.WriteLine($\"A string: {s}\");
+        break;
+    default:
+        Console.WriteLine(\"Unknown type\");
+        break;
+}"
+
+[node name="ContentContainer5" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="9" instance=ExtResource("2_d46mr")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer5" index="0"]
+text = "With pattern matching, you can switch based on the type of an object. Each `case` specifies a pattern to match against the expression.
+
+5. Using `switch` for Control Flow:"
+
+[node name="CodeLabel5" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="10" instance=ExtResource("3_xa0ws")]
+layout_mode = 2
+text = "string action = \"play\";
+switch (action)
+{
+    case \"start\":
+    case \"play\":
+        StartGame();
+        break;
+    case \"pause\":
+        PauseGame();
+        break;
+    case \"stop\":
+        StopGame();
+        break;
+    default:
+        Console.WriteLine(\"Unknown action\");
+        break;
+}"
+
+[node name="ContentContainer6" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="11" instance=ExtResource("2_d46mr")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer6" index="0"]
+text = "`switch` statements can be used not only for value-based decisions but also for control flow. In this example, different actions trigger different methods to be called.
+
+Switch Expressions:"
+
+[node name="CodeLabel6" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="12" instance=ExtResource("3_xa0ws")]
+layout_mode = 2
+text = "int num = 3;
+string result = num switch
+{
+    1 => \"One\",
+    2 => \"Two\",
+    3 => \"Three\",
+    _ => \"Other\" // Default case using discard pattern
+};
+Console.WriteLine(result); // Output: Three"
+
+[node name="ContentContainer7" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="13" instance=ExtResource("2_d46mr")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer7" index="0"]
+text = "In this example:
+[ul]
+The expression num is evaluated, and based on its value, the corresponding result is assigned to the result variable.
+Each case specifies a value to match against the expression, followed by the result to be returned if the value matches.
+The _ represents the discard pattern, acting as the default case if no other case matches.
+[/ul]
+
+Switch expressions are more concise than traditional switch statements and are particularly useful when you want to assign a value based on a single expression. They also support complex pattern matching, making them versatile for various scenarios."
+
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer"]
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer2"]
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer3"]
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer4"]
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer5"]
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer6"]
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer7"]

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkw577o8t8jb0"]
+
+[ext_resource type="Script" path="res://scripts/ConceptButton.cs" id="1_1i1jp"]
+
+[node name="ConceptButton" type="Button"]
+auto_translate_mode = 1
+custom_minimum_size = Vector2(0, 75)
+size_flags_vertical = 3
+text_overrun_behavior = 3
+script = ExtResource("1_1i1jp")

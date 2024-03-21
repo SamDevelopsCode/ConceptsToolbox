@@ -1,40 +1,31 @@
 using Godot;
-using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
-using PCC.scripts;
 
 public partial class ConceptSceneLoader : VBoxContainer
 {
-	[Export] private ConceptScenes _conceptScenes;
-	
 	[ExportCategory("Main Content Container")]
 	[Export] private VBoxContainer _contentContainer;
 
-	private bool _transitioningContentScenes = false;
+	private bool _transitioningContentScenes;
 
 	public override void _Ready()
 	{
-		foreach (Button child in GetChildren())
+		foreach (ConceptButton childButton in GetChildren())
 		{
-			// Godot won't allow '.' character in Node names so manually setting it in editor
-			if (child.Name == "DotNet")
+			// Manually setting .NET button text in editor because you aren't allowed to use '.' in Node names,
+			// this check is for every other concept page
+			if (childButton.Text == "")
 			{
-				child.Text = ".NET";
-				child.TooltipText = ".NET";
-				child.Pressed += () => OnButtonPressed(child);
-				continue;
+				childButton.Text = childButton.Name;
 			}
-			child.Text = child.Name;
-			child.TooltipText = child.Name;
-			child.Pressed += () => OnButtonPressed(child);
+			
+			childButton.TooltipText = childButton.Text;
+			childButton.Pressed += () => OnButtonPressed(childButton);
 		}
-		
-		_conceptScenes.Initialize();
 	}
 
 	
-	private async void OnButtonPressed(Button button)
+	private async void OnButtonPressed(ConceptButton button)
 	{
 		if (_transitioningContentScenes) return;
 		
@@ -42,7 +33,7 @@ public partial class ConceptSceneLoader : VBoxContainer
 		{
 			var currentConceptContentInstance = _contentContainer.GetChild(0);
 
-			if (currentConceptContentInstance.Name == button.Name)
+			if (currentConceptContentInstance.Name == button.Text)
 			{
 				return;
 			}
@@ -50,25 +41,21 @@ public partial class ConceptSceneLoader : VBoxContainer
 			await TweenConceptContentInstanceExit(currentConceptContentInstance);
 		}
 
-		AddConceptContentPage(_conceptScenes.ContentScenesDictionary[button.Name], button.Name);
+		AddConceptContentPage(button.conceptScene, button.Text);
 	}
 
 	
-	private async void AddConceptContentPage(PackedScene packedScene, string buttonName)
+	private async void AddConceptContentPage(PackedScene packedScene, string buttonText)
 	{
 		Control newConceptContentInstance = packedScene.Instantiate<Control>();
 		_contentContainer.AddChild(newConceptContentInstance);
 		
-		//using modulation in method instead of hiding/showing because of weird flickering effect
+		// using modulation in method instead of hiding/showing because of weird flickering on load
 		newConceptContentInstance.Modulate = new Color(0, 0, 0, 0);
-		// setting the Title of the content page to the name of button node 
-		// except for .NET as editor won't allow '.' in Node names.
-		if (buttonName != "DotNet")
-		{
-			newConceptContentInstance.GetNode<Label>("%Title").Text = buttonName;
-		}
+		newConceptContentInstance.GetNode<Label>("%Title").Text = buttonText;
 		
-		// docs suggest to await a process frame before setting scale of a control that is a child of a container
+		
+		// docs say to await a process frame before setting scale of a control that is a child of a container on load
 		await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
 		
 		newConceptContentInstance.Modulate = Colors.White;

@@ -8,9 +8,6 @@
 [node name="MarginContainer" parent="BGPanel" index="0"]
 metadata/_edit_use_anchors_ = true
 
-[node name="Title" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/TitleContainer" index="0"]
-text = ".NET"
-
 [node name="ContentContainer" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="1" instance=ExtResource("2_ukb43")]
 layout_mode = 2
 

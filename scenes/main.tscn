@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://hgci7p5fdv6y"]
+[gd_scene load_steps=36 format=3 uid="uid://hgci7p5fdv6y"]
 
 [ext_resource type="Texture2D" uid="uid://ik7m64txpp33" path="res://art/menu_icon.svg" id="2_4tn1m"]
 [ext_resource type="Script" path="res://scripts/MainControls.cs" id="2_c630d"]
@@ -8,7 +8,28 @@
 [ext_resource type="Texture2D" uid="uid://diqaupjpwkv12" path="res://art/maximize_icon.svg" id="4_fh14i"]
 [ext_resource type="Theme" uid="uid://hk1daviq14ti" path="res://themes/main.tres" id="5_rd3j3"]
 [ext_resource type="Script" path="res://scripts/ConceptSceneLoader.cs" id="8_jfubk"]
-[ext_resource type="Resource" uid="uid://vrd7cy8lccbd" path="res://resources/concept_scenes_data.tres" id="9_eemwl"]
+[ext_resource type="PackedScene" uid="uid://qjw3nle7oi62" path="res://scenes/content/content_accessors.tscn" id="9_dh2wl"]
+[ext_resource type="PackedScene" uid="uid://dkw577o8t8jb0" path="res://scenes/content_components/concept_button.tscn" id="10_e02n0"]
+[ext_resource type="PackedScene" uid="uid://br5u6kua4kc2" path="res://scenes/content/content_arrays.tscn" id="10_s232x"]
+[ext_resource type="PackedScene" uid="uid://bjrnek1jeg0il" path="res://scenes/content/content_classes.tscn" id="11_apqqs"]
+[ext_resource type="PackedScene" uid="uid://csqf351jb25ky" path="res://scenes/content/content_dotnet.tscn" id="12_pnmko"]
+[ext_resource type="PackedScene" uid="uid://cs85gh7uivwwk" path="res://scenes/content/content_enumerations.tscn" id="13_h85aq"]
+[ext_resource type="PackedScene" uid="uid://dd6me05n04ft1" path="res://scenes/content/content_generics.tscn" id="14_eeedk"]
+[ext_resource type="PackedScene" uid="uid://c5norbhlt6dwy" path="res://scenes/content/content_inheritance.tscn" id="15_n6hrd"]
+[ext_resource type="PackedScene" uid="uid://chql1xd0m44aa" path="res://scenes/content/content_interfaces.tscn" id="16_ya4lv"]
+[ext_resource type="PackedScene" uid="uid://cquhfkt536mlk" path="res://scenes/content/content_loops.tscn" id="17_bev5q"]
+[ext_resource type="PackedScene" uid="uid://c6jj23ooiem27" path="res://scenes/content/content_memory_management.tscn" id="18_vxadv"]
+[ext_resource type="PackedScene" uid="uid://radfpo20nsw2" path="res://scenes/content/content_null_references.tscn" id="19_yv7e6"]
+[ext_resource type="PackedScene" uid="uid://facexbwr3q5d" path="res://scenes/content/content_polymorphism.tscn" id="20_sgytb"]
+[ext_resource type="PackedScene" uid="uid://vfp2tbiuuaks" path="res://scenes/content/content_properties.tscn" id="21_hcjk4"]
+[ext_resource type="PackedScene" uid="uid://cw4hmub44n3vj" path="res://scenes/content/content_records.tscn" id="22_a4bln"]
+[ext_resource type="PackedScene" uid="uid://vqnbjk2d12l5" path="res://scenes/content/content_static.tscn" id="23_w8dap"]
+[ext_resource type="PackedScene" uid="uid://b3tqno2us01ni" path="res://scenes/content/content_strings.tscn" id="24_qge8s"]
+[ext_resource type="PackedScene" uid="uid://c142d5c0qhqk1" path="res://scenes/content/content_structs.tscn" id="25_fanjj"]
+[ext_resource type="PackedScene" uid="uid://o8o1tlhtih8l" path="res://scenes/content/content_switches.tscn" id="26_7y3l4"]
+[ext_resource type="PackedScene" uid="uid://ddmn85x3illpe" path="res://scenes/content/content_tuples.tscn" id="27_saf1i"]
+[ext_resource type="PackedScene" uid="uid://5nj1k6datt5u" path="res://scenes/content/content_types.tscn" id="28_l85x0"]
+[ext_resource type="PackedScene" uid="uid://dxhdr4rhia1in" path="res://scenes/content/content_variables.tscn" id="29_hl1eb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_28k4j"]
 bg_color = Color(0.0352941, 0.0392157, 0.0745098, 1)
@@ -171,134 +192,92 @@ vertical_scroll_mode = 3
 layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("8_jfubk")
-_conceptScenes = ExtResource("9_eemwl")
 _contentContainer = NodePath("../../../Content")
 
-[node name="DotNet" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons"]
-auto_translate_mode = 1
-custom_minimum_size = Vector2(0, 75)
+[node name="Dotnet" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons" instance=ExtResource("10_e02n0")]
 layout_mode = 2
-size_flags_vertical = 3
-text_overrun_behavior = 3
+text = ".NET"
+conceptScene = ExtResource("12_pnmko")
 
-[node name="Variables" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons"]
-auto_translate_mode = 1
-custom_minimum_size = Vector2(0, 75)
+[node name="Variables" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons" instance=ExtResource("10_e02n0")]
 layout_mode = 2
-text_overrun_behavior = 3
+conceptScene = ExtResource("29_hl1eb")
 
-[node name="Types" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons"]
-custom_minimum_size = Vector2(0, 75)
+[node name="Types" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons" instance=ExtResource("10_e02n0")]
 layout_mode = 2
-text_overrun_behavior = 3
+conceptScene = ExtResource("28_l85x0")
 
-[node name="Strings" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons"]
-auto_translate_mode = 1
-custom_minimum_size = Vector2(0, 75)
+[node name="Strings" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons" instance=ExtResource("10_e02n0")]
 layout_mode = 2
-text_overrun_behavior = 3
+conceptScene = ExtResource("24_qge8s")
 
-[node name="Arrays" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons"]
-auto_translate_mode = 1
-custom_minimum_size = Vector2(0, 75)
+[node name="Loops" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons" instance=ExtResource("10_e02n0")]
 layout_mode = 2
-text_overrun_behavior = 3
+conceptScene = ExtResource("17_bev5q")
 
-[node name="Switches" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons"]
-auto_translate_mode = 1
-custom_minimum_size = Vector2(0, 75)
+[node name="Switches" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons" instance=ExtResource("10_e02n0")]
 layout_mode = 2
-text_overrun_behavior = 3
+conceptScene = ExtResource("26_7y3l4")
 
-[node name="Loops" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons"]
-auto_translate_mode = 1
-custom_minimum_size = Vector2(0, 75)
+[node name="Arrays" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons" instance=ExtResource("10_e02n0")]
 layout_mode = 2
-text_overrun_behavior = 3
+conceptScene = ExtResource("10_s232x")
 
-[node name="Accessors" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons"]
-auto_translate_mode = 1
-custom_minimum_size = Vector2(0, 75)
+[node name="Accessors" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons" instance=ExtResource("10_e02n0")]
 layout_mode = 2
-text_overrun_behavior = 3
+conceptScene = ExtResource("9_dh2wl")
 
-[node name="Classes" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons"]
-auto_translate_mode = 1
-custom_minimum_size = Vector2(0, 75)
+[node name="Static" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons" instance=ExtResource("10_e02n0")]
 layout_mode = 2
-text_overrun_behavior = 3
+conceptScene = ExtResource("23_w8dap")
 
-[node name="Properties" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons"]
-auto_translate_mode = 1
-custom_minimum_size = Vector2(0, 75)
+[node name="Classes" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons" instance=ExtResource("10_e02n0")]
 layout_mode = 2
-text_overrun_behavior = 3
+conceptScene = ExtResource("11_apqqs")
 
-[node name="Static" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons"]
-auto_translate_mode = 1
-custom_minimum_size = Vector2(0, 75)
+[node name="Inheritance" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons" instance=ExtResource("10_e02n0")]
 layout_mode = 2
-text_overrun_behavior = 3
+conceptScene = ExtResource("15_n6hrd")
 
-[node name="Inheritance" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons"]
-auto_translate_mode = 1
-custom_minimum_size = Vector2(0, 75)
+[node name="Polymorphism" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons" instance=ExtResource("10_e02n0")]
 layout_mode = 2
-text_overrun_behavior = 3
+conceptScene = ExtResource("20_sgytb")
 
-[node name="Polymorphism" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons"]
-auto_translate_mode = 1
-custom_minimum_size = Vector2(0, 75)
+[node name="Memory Management" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons" instance=ExtResource("10_e02n0")]
 layout_mode = 2
-text_overrun_behavior = 3
+conceptScene = ExtResource("18_vxadv")
 
-[node name="Null References" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons"]
-auto_translate_mode = 1
-custom_minimum_size = Vector2(0, 75)
+[node name="Enumerations" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons" instance=ExtResource("10_e02n0")]
 layout_mode = 2
-text_overrun_behavior = 3
+conceptScene = ExtResource("13_h85aq")
 
-[node name="Memory Management" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons"]
-auto_translate_mode = 1
-custom_minimum_size = Vector2(0, 75)
+[node name="Null References" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons" instance=ExtResource("10_e02n0")]
 layout_mode = 2
-text_overrun_behavior = 3
+conceptScene = ExtResource("19_yv7e6")
 
-[node name="Enumerations" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons"]
-auto_translate_mode = 1
-custom_minimum_size = Vector2(0, 75)
+[node name="Interfaces" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons" instance=ExtResource("10_e02n0")]
 layout_mode = 2
-text_overrun_behavior = 3
+conceptScene = ExtResource("16_ya4lv")
 
-[node name="Tuples" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons"]
-auto_translate_mode = 1
-custom_minimum_size = Vector2(0, 75)
+[node name="Generics" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons" instance=ExtResource("10_e02n0")]
 layout_mode = 2
-text_overrun_behavior = 3
+conceptScene = ExtResource("14_eeedk")
 
-[node name="Interfaces" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons"]
-auto_translate_mode = 1
-custom_minimum_size = Vector2(0, 75)
+[node name="Tuples" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons" instance=ExtResource("10_e02n0")]
 layout_mode = 2
-text_overrun_behavior = 3
+conceptScene = ExtResource("27_saf1i")
 
-[node name="Structs" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons"]
-auto_translate_mode = 1
-custom_minimum_size = Vector2(0, 75)
+[node name="Properties" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons" instance=ExtResource("10_e02n0")]
 layout_mode = 2
-text_overrun_behavior = 3
+conceptScene = ExtResource("21_hcjk4")
 
-[node name="Records" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons"]
-auto_translate_mode = 1
-custom_minimum_size = Vector2(0, 75)
+[node name="Structs" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons" instance=ExtResource("10_e02n0")]
 layout_mode = 2
-text_overrun_behavior = 3
+conceptScene = ExtResource("25_fanjj")
 
-[node name="Generics" type="Button" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons"]
-auto_translate_mode = 1
-custom_minimum_size = Vector2(0, 75)
+[node name="Records" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons" instance=ExtResource("10_e02n0")]
 layout_mode = 2
-text_overrun_behavior = 3
+conceptScene = ExtResource("22_a4bln")
 
 [node name="Content" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
