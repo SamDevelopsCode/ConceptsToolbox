@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://diqaupjpwkv12" path="res://art/maximize_icon.svg" id="4_fh14i"]
 [ext_resource type="Theme" uid="uid://hk1daviq14ti" path="res://themes/main.tres" id="5_rd3j3"]
 [ext_resource type="Script" path="res://scripts/ConceptSceneLoader.cs" id="8_jfubk"]
-[ext_resource type="PackedScene" uid="uid://qjw3nle7oi62" path="res://scenes/content/content_accessors.tscn" id="9_dh2wl"]
+[ext_resource type="PackedScene" uid="uid://qjw3nle7oi62" path="res://scenes/content/content_access_modifiers.tscn" id="9_dh2wl"]
 [ext_resource type="PackedScene" uid="uid://dkw577o8t8jb0" path="res://scenes/content_components/concept_button.tscn" id="10_e02n0"]
 [ext_resource type="PackedScene" uid="uid://br5u6kua4kc2" path="res://scenes/content/content_arrays.tscn" id="10_s232x"]
 [ext_resource type="PackedScene" uid="uid://bjrnek1jeg0il" path="res://scenes/content/content_classes.tscn" id="11_apqqs"]
@@ -223,7 +223,7 @@ conceptScene = ExtResource("26_7y3l4")
 layout_mode = 2
 conceptScene = ExtResource("10_s232x")
 
-[node name="Accessors" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons" instance=ExtResource("10_e02n0")]
+[node name="Access Modifiers" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons" instance=ExtResource("10_e02n0")]
 layout_mode = 2
 conceptScene = ExtResource("9_dh2wl")
 
