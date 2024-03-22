@@ -1,6 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bpvvyvfjeb3uy"]
-
-[ext_resource type="FontFile" uid="uid://6k3yyj78acdo" path="res://fonts/MonospaceTypewriter.ttf" id="1_7bujd"]
+[gd_scene load_steps=3 format=3 uid="uid://bpvvyvfjeb3uy"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n142s"]
 
@@ -22,7 +20,6 @@ corner_detail = 20
 [node name="CodeLabel" type="RichTextLabel"]
 auto_translate_mode = 1
 focus_mode = 2
-theme_override_fonts/normal_font = ExtResource("1_7bujd")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_n142s")
 theme_override_styles/normal = SubResource("StyleBoxFlat_nj47p")
 bbcode_enabled = true
