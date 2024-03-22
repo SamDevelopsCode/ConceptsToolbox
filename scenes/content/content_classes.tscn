@@ -1,5 +1,41 @@
-[gd_scene load_steps=2 format=3 uid="uid://bjrnek1jeg0il"]
+[gd_scene load_steps=3 format=3 uid="uid://bjrnek1jeg0il"]
 
 [ext_resource type="PackedScene" uid="uid://cx75ggvi8ih8i" path="res://scenes/content/content.tscn" id="1_co77m"]
+[ext_resource type="PackedScene" uid="uid://bcim245yjlwwf" path="res://scenes/content_components/content_margin_container.tscn" id="2_p4iqn"]
 
 [node name="Classes" instance=ExtResource("1_co77m")]
+
+[node name="ContentContainer" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="1" instance=ExtResource("2_p4iqn")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer" index="0"]
+text = "Classes serve as blueprints for creating objects, which are instances of those classes. They encapsulate both data (in the form of fields or properties) and behavior (in the form of methods) related to a specific concept or entity. Here's a higher-level overview:
+
+
+1. Abstraction of Real-world Entities:
+Classes allow developers to abstract real-world entities or concepts into code. For example, a Person class might represent a person with properties like name, age, and address.
+
+2. Encapsulation of Data and Behavior:
+Classes encapsulate both data and behavior related to the entity they represent. This encapsulation helps in organizing code and ensures that data and behavior are closely related and can be manipulated together.
+
+3. Reusability:
+Classes promote reusability by allowing developers to define a template once and create multiple instances of it. Once a class is defined, it can be instantiated as many times as needed throughout the application.
+
+4. Modularity and Maintainability:
+Classes promote modularity by dividing a large system into smaller, manageable units. Each class represents a module that can be developed, tested, and maintained independently. This modular approach enhances code maintainability and scalability.
+
+5. Inheritance and Polymorphism:
+C# supports inheritance, allowing one class to inherit fields, properties, and methods from another class. This feature facilitates code reuse and promotes polymorphism, where objects of different classes can be treated interchangeably based on their common base class.
+
+6. Access Control:
+Classes support access modifiers like public, private, protected, and internal, which control the accessibility of class members. This helps in enforcing encapsulation and information hiding, ensuring that internal implementation details are hidden from external code.
+
+7. Static Members and Constants:
+In addition to instance members, classes can also contain static members and constants. Static members belong to the class itself rather than to instances of the class and are shared among all instances. Constants are immutable values that are known at compile time and do not change during the execution of the program.
+
+8. Object-Oriented Programming Paradigm:
+Classes are fundamental to the object-oriented programming (OOP) paradigm, which emphasizes the concept of objects and classes. OOP promotes concepts such as inheritance, encapsulation, and polymorphism, which help in building robust, scalable, and maintainable software systems.
+
+In summary, classes provide a powerful mechanism for modeling real-world entities, organizing code into reusable and maintainable units, and implementing the core principles of object-oriented programming. They form the building blocks of C# applications, enabling developers to create complex systems while maintaining code clarity and structure."
+
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer"]
