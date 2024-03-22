@@ -227,9 +227,17 @@ conceptScene = ExtResource("10_s232x")
 layout_mode = 2
 conceptScene = ExtResource("9_dh2wl")
 
+[node name="Properties" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons" instance=ExtResource("10_e02n0")]
+layout_mode = 2
+conceptScene = ExtResource("21_hcjk4")
+
 [node name="Static" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons" instance=ExtResource("10_e02n0")]
 layout_mode = 2
 conceptScene = ExtResource("23_w8dap")
+
+[node name="Enumerations" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons" instance=ExtResource("10_e02n0")]
+layout_mode = 2
+conceptScene = ExtResource("13_h85aq")
 
 [node name="Classes" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons" instance=ExtResource("10_e02n0")]
 layout_mode = 2
@@ -247,10 +255,6 @@ conceptScene = ExtResource("20_sgytb")
 layout_mode = 2
 conceptScene = ExtResource("18_vxadv")
 
-[node name="Enumerations" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons" instance=ExtResource("10_e02n0")]
-layout_mode = 2
-conceptScene = ExtResource("13_h85aq")
-
 [node name="Null References" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons" instance=ExtResource("10_e02n0")]
 layout_mode = 2
 conceptScene = ExtResource("19_yv7e6")
@@ -266,10 +270,6 @@ conceptScene = ExtResource("14_eeedk")
 [node name="Tuples" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons" instance=ExtResource("10_e02n0")]
 layout_mode = 2
 conceptScene = ExtResource("27_saf1i")
-
-[node name="Properties" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons" instance=ExtResource("10_e02n0")]
-layout_mode = 2
-conceptScene = ExtResource("21_hcjk4")
 
 [node name="Structs" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons" instance=ExtResource("10_e02n0")]
 layout_mode = 2

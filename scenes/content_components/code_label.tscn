@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bpvvyvfjeb3uy"]
+[gd_scene load_steps=4 format=3 uid="uid://bpvvyvfjeb3uy"]
+
+[ext_resource type="FontFile" uid="uid://dw05f6drfayoo" path="res://fonts/Courier Prime.ttf" id="1_mcqc7"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n142s"]
 
@@ -20,6 +22,7 @@ corner_detail = 20
 [node name="CodeLabel" type="RichTextLabel"]
 auto_translate_mode = 1
 focus_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_mcqc7")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_n142s")
 theme_override_styles/normal = SubResource("StyleBoxFlat_nj47p")
 bbcode_enabled = true

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://facexbwr3q5d"]
+[gd_scene load_steps=4 format=3 uid="uid://facexbwr3q5d"]
 
 [ext_resource type="PackedScene" uid="uid://cx75ggvi8ih8i" path="res://scenes/content/content.tscn" id="1_lv8un"]
 [ext_resource type="PackedScene" uid="uid://bcim245yjlwwf" path="res://scenes/content_components/content_margin_container.tscn" id="2_ki518"]
+[ext_resource type="PackedScene" uid="uid://bpvvyvfjeb3uy" path="res://scenes/content_components/code_label.tscn" id="3_l0osr"]
 
 [node name="Polymorphism" instance=ExtResource("1_lv8un")]
 
@@ -9,43 +10,147 @@
 layout_mode = 2
 
 [node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer" index="0"]
-text = "	Polymorphism is a core concept in object-oriented programming (OOP) that allows objects of different classes to be treated as objects of a common base class. It enables flexibility and extensibility in code by allowing methods to operate on objects of different types through a common interface.
+text = "	Polymorphism is a core concept in object-oriented programming (OOP) that allows objects of different classes to be treated as objects of a common base class.
 
-1. [b]Base Class and Derived Classes[/b]:
+[b]Base Class and Derived Classes[/b]:
 [ul]
     Polymorphism typically involves a base class and one or more derived classes.
     The base class defines a common interface or set of behaviors, while derived classes provide specialized implementations of those behaviors.
 [/ul]
 
-2. [b]Method Overriding[/b]:
+[b]Method Overriding[/b]:
 [ul]
 Derived classes can override methods defined in the base class to provide specialized behavior.
 When a method is invoked on an object of the base class, the runtime environment selects the appropriate implementation based on the actual type of the object (runtime polymorphism).
-[/ul]
+[/ul]"
 
-3. [b]Example[/b]:
-[ul]
-For example, consider a base class Shape with a method Draw. Derived classes Circle and Rectangle override the Draw method to provide specific drawing implementations.
-When calling the Draw method on a Shape object, the actual drawing behavior depends on the type of the object (e.g., a circle or rectangle).
-[/ul]
+[node name="CodeLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="2" instance=ExtResource("3_l0osr")]
+layout_mode = 2
+text = "public class Shape
+{
+    public virtual void Draw()
+    {
+        Console.WriteLine(\"Drawing a shape\");
+    }
+}
 
-4. [b]Interface-based Polymorphism[/b]:
+
+public class Circle : Shape
+{
+    public override void Draw()
+    {
+        Console.WriteLine(\"Drawing a circle\");
+    }
+}
+
+
+public class Rectangle : Shape
+{
+    public override void Draw()
+    {
+        Console.WriteLine(\"Drawing a rectangle\");
+    }
+}
+
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Shape shape1 = new Circle();
+        shape1.Draw(); // Output: Drawing a circle
+
+        Shape shape2 = new Rectangle();
+        shape2.Draw(); // Output: Drawing a rectangle
+    }
+}"
+
+[node name="ContentContainer2" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="3" instance=ExtResource("2_ki518")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer2" index="0"]
+auto_translate_mode = 1
+text = "[b]Interface-based Polymorphism[/b]:
 [ul]
 Polymorphism can also be achieved through interfaces, where multiple classes implement the same interface and provide their own implementations for its methods.
 This allows objects of different classes to be treated uniformly based on their shared interface.
-[/ul]
+[/ul]"
 
-5. [b]Benefits[/b]:
-[ul]
-Polymorphism promotes code reusability, as methods can be written to operate on objects of a common base class or interface without knowing the specific type of the objects.
-It simplifies code maintenance and enhances flexibility, as new derived classes can be added without modifying existing code.
-[/ul]
+[node name="CodeLabel2" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="4" instance=ExtResource("3_l0osr")]
+layout_mode = 2
+text = "public interface IShape
+{
+    void Draw();
+}
 
-6. [b]Compile-time Polymorphism[/b]:
+
+public class Circle : IShape
+{
+    public void Draw()
+    {
+        Console.WriteLine(\"Drawing a circle\");
+    }
+}
+
+
+public class Rectangle : IShape
+{
+    public void Draw()
+    {
+        Console.WriteLine(\"Drawing a rectangle\");
+    }
+}
+
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        IShape shape1 = new Circle();
+        shape1.Draw(); // Output: Drawing a circle
+
+        IShape shape2 = new Rectangle();
+        shape2.Draw(); // Output: Drawing a rectangle
+    }
+}"
+
+[node name="ContentContainer3" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="5" instance=ExtResource("2_ki518")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer3" index="0"]
+auto_translate_mode = 1
+text = "[b]Compile-time Polymorphism[/b]:
 [ul]
 In addition to runtime polymorphism achieved through method overriding, C# also supports compile-time polymorphism (method overloading), where multiple methods with the same name but different parameter lists can coexist in the same class.
-[/ul]
+[/ul]"
 
-Polymorphism is a powerful concept in OOP that enables code to be more adaptable, modular, and extensible. It promotes code reuse and simplifies complex systems by allowing objects of different types to be treated uniformly based on their shared behaviors or interfaces."
+[node name="CodeLabel3" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="6" instance=ExtResource("3_l0osr")]
+layout_mode = 2
+text = "public class Calculator
+{
+    public int Add(int a, int b)
+    {
+        return a + b;
+    }
+
+    public double Add(double a, double b)
+    {
+        return a + b;
+    }
+}
+
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Calculator calculator = new Calculator();
+
+        int sum1 = calculator.Add(5, 3); // Output: 8
+        double sum2 = calculator.Add(2.5, 3.5); // Output: 6.0
+    }
+}"
 
 [editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer"]
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer2"]
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer3"]
