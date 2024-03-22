@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cx75ggvi8ih8i"]
 
 [ext_resource type="Theme" uid="uid://hk1daviq14ti" path="res://themes/main.tres" id="1_2oaqp"]
-[ext_resource type="Script" path="res://scenes/content/Content.cs" id="2_r57x3"]
+[ext_resource type="Script" path="res://scripts/ConceptContent.cs" id="2_s6e06"]
 [ext_resource type="FontFile" uid="uid://bpvvc1sqlbv25" path="res://fonts/Fragmentcore.otf" id="3_yyl5w"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ubsot"]
@@ -21,7 +21,7 @@ theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
-script = ExtResource("2_r57x3")
+script = ExtResource("2_s6e06")
 
 [node name="BGPanel" type="Panel" parent="."]
 auto_translate_mode = 1

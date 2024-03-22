@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Content : MarginContainer
+public partial class ConceptContent : MarginContainer
 {
 	public override void _Ready()
 	{
