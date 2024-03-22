@@ -52,8 +52,6 @@ public partial class ConceptSceneLoader : VBoxContainer
 		
 		// using modulation in method instead of hiding/showing because of weird flickering on load
 		newConceptContentInstance.Modulate = new Color(0, 0, 0, 0);
-		newConceptContentInstance.GetNode<Label>("%Title").Text = buttonText;
-		
 		
 		// docs say to await a process frame before setting scale of a control that is a child of a container on load
 		await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);

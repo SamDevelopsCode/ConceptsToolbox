@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cx75ggvi8ih8i"]
+[gd_scene load_steps=5 format=3 uid="uid://cx75ggvi8ih8i"]
 
 [ext_resource type="Theme" uid="uid://hk1daviq14ti" path="res://themes/main.tres" id="1_2oaqp"]
+[ext_resource type="Script" path="res://scenes/content/Content.cs" id="2_r57x3"]
+[ext_resource type="FontFile" uid="uid://bpvvc1sqlbv25" path="res://fonts/Fragmentcore.otf" id="3_yyl5w"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ubsot"]
 content_margin_right = 70.0
@@ -19,6 +21,7 @@ theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
+script = ExtResource("2_r57x3")
 
 [node name="BGPanel" type="Panel" parent="."]
 auto_translate_mode = 1
@@ -49,9 +52,12 @@ layout_mode = 2
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="Title" type="Label" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/TitleContainer"]
+[node name="Title" type="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/TitleContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 4
 theme = ExtResource("1_2oaqp")
-theme_override_font_sizes/font_size = 48
-horizontal_alignment = 1
+theme_override_fonts/normal_font = ExtResource("3_yyl5w")
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+fit_content = true
