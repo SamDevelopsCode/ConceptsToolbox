@@ -1,16 +1,40 @@
-[gd_scene load_steps=3 format=3 uid="uid://bjrnek1jeg0il"]
+[gd_scene load_steps=4 format=3 uid="uid://bjrnek1jeg0il"]
 
 [ext_resource type="PackedScene" uid="uid://cx75ggvi8ih8i" path="res://scenes/content/content.tscn" id="1_co77m"]
+[ext_resource type="Theme" uid="uid://hk1daviq14ti" path="res://themes/main.tres" id="2_isrh8"]
 [ext_resource type="PackedScene" uid="uid://bcim245yjlwwf" path="res://scenes/content_components/content_margin_container.tscn" id="2_p4iqn"]
 
 [node name="Classes" instance=ExtResource("1_co77m")]
 
-[node name="ContentContainer" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="1" instance=ExtResource("2_p4iqn")]
+[node name="MarginContainer" type="MarginContainer" parent="BGPanel/MarginContainer/ScrollContainer" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BGPanel/MarginContainer/ScrollContainer/MarginContainer" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TitleContainer" type="MarginContainer" parent="BGPanel/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer" index="0"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Title" type="Label" parent="BGPanel/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/TitleContainer" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("2_isrh8")
+theme_override_font_sizes/font_size = 48
+horizontal_alignment = 1
+
+[node name="BGPanel_MarginContainer_ScrollContainer_VBoxContainer#ContentContainer" parent="BGPanel/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer" index="1" instance=ExtResource("2_p4iqn")]
 layout_mode = 2
 
-[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer" index="0"]
-text = "Classes serve as blueprints for creating objects, which are instances of those classes. They encapsulate both data (in the form of fields or properties) and behavior (in the form of methods) related to a specific concept or entity. Here's a higher-level overview:
-
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/BGPanel_MarginContainer_ScrollContainer_VBoxContainer#ContentContainer" index="0"]
+text = "Classes serve as blueprints for creating objects, which are instances of those classes. They encapsulate both data (in the form of fields or properties) and behavior (in the form of methods) related to a specific concept or entity.
 
 1. Abstraction of Real-world Entities:
 Classes allow developers to abstract real-world entities or concepts into code. For example, a Person class might represent a person with properties like name, age, and address.
@@ -36,6 +60,6 @@ In addition to instance members, classes can also contain static members and con
 8. Object-Oriented Programming Paradigm:
 Classes are fundamental to the object-oriented programming (OOP) paradigm, which emphasizes the concept of objects and classes. OOP promotes concepts such as inheritance, encapsulation, and polymorphism, which help in building robust, scalable, and maintainable software systems.
 
-In summary, classes provide a powerful mechanism for modeling real-world entities, organizing code into reusable and maintainable units, and implementing the core principles of object-oriented programming. They form the building blocks of C# applications, enabling developers to create complex systems while maintaining code clarity and structure."
+In summary, classes in C# provide a powerful mechanism for modeling real-world entities, organizing code into reusable and maintainable units, and implementing the core principles of object-oriented programming. They form the building blocks of C# applications, enabling developers to create complex systems while maintaining code clarity and structure."
 
-[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer"]
+[editable path="BGPanel/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/BGPanel_MarginContainer_ScrollContainer_VBoxContainer#ContentContainer"]
