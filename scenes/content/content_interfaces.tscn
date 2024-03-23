@@ -1,5 +1,109 @@
-[gd_scene load_steps=2 format=3 uid="uid://chql1xd0m44aa"]
+[gd_scene load_steps=4 format=3 uid="uid://chql1xd0m44aa"]
 
 [ext_resource type="PackedScene" uid="uid://cx75ggvi8ih8i" path="res://scenes/content/content.tscn" id="1_h2egk"]
+[ext_resource type="PackedScene" uid="uid://bcim245yjlwwf" path="res://scenes/content_components/content_margin_container.tscn" id="2_b8o4n"]
+[ext_resource type="PackedScene" uid="uid://bpvvyvfjeb3uy" path="res://scenes/content_components/code_label.tscn" id="3_c3hbh"]
 
 [node name="Interfaces" instance=ExtResource("1_h2egk")]
+
+[node name="ContentContainer" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="1" instance=ExtResource("2_b8o4n")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer" index="0"]
+text = "Interfaces in C# define a contract that classes can implement, specifying a set of methods, properties, events, or indexers that implementing classes must provide. Interfaces allow for polymorphism, enabling different classes to share common behavior without being directly related in the class hierarchy.
+
+They promote code abstraction, decoupling, and flexibility, making it easier to design modular, maintainable, and extensible software systems.
+
+[b]Interface Declaration[/b]:"
+
+[node name="CodeLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="2" instance=ExtResource("3_c3hbh")]
+layout_mode = 2
+text = "// Interface representing a printable object
+public interface IPrintable
+{
+    void Print();
+}
+
+
+// Interface representing a burnable object
+public interface IBurnable
+{
+	void Burn();
+}"
+
+[node name="ContentContainer2" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="3" instance=ExtResource("2_b8o4n")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer2" index="0"]
+auto_translate_mode = 1
+text = "Interfaces are declared using the interface keyword followed by the name of the interface and a list of method, property, event, or indexer declarations.
+
+[b]Implementing Interfaces[/b]:"
+
+[node name="CodeLabel2" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="4" instance=ExtResource("3_c3hbh")]
+layout_mode = 2
+text = "// Class implementing the IPrintable interface
+public class Document : IPrintable, IBurnable
+{
+    public void Print()
+    {
+        Console.WriteLine(\"Printing document...\");
+    }
+
+	public void Burn()
+	{
+		Console.WriteLine(\"Burn all printers!!!\")
+	}
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Creating an instance of a class implementing IPrintable
+        IPrintable printable = new Document();
+        
+        // Calling the Print method through the interface reference
+        printable.Print();
+		printable.Burn();
+    }
+}"
+
+[node name="ContentContainer3" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="5" instance=ExtResource("2_b8o4n")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer3" index="0"]
+auto_translate_mode = 1
+text = "Classes can implement one or more interfaces by providing implementations for all the members declared in the interface. A class can also implement multiple interfaces, allowing it to exhibit multiple types of behavior.
+
+[b]Interface Inheritance[/b]:"
+
+[node name="CodeLabel3" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="6" instance=ExtResource("3_c3hbh")]
+layout_mode = 2
+text = "// Interface inheriting from IPrintable
+public interface IDocument : IPrintable
+{
+    string Title { get; set; }
+}"
+
+[node name="ContentContainer4" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="7" instance=ExtResource("2_b8o4n")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer4" index="0"]
+auto_translate_mode = 1
+text = "Interfaces can inherit from one or more interfaces, inheriting the members declared in those interfaces. Implementing an interface that inherits from other interfaces requires providing implementations for all inherited members.
+
+[b]Interface Polymorphism[/b]:"
+
+[node name="CodeLabel4" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="8" instance=ExtResource("3_c3hbh")]
+layout_mode = 2
+text = "// Method accepting any IPrintable object
+public void PrintDocument(IPrintable printable)
+{
+    printable.Print();
+}"
+
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer"]
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer2"]
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer3"]
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer4"]
