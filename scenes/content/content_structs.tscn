@@ -1,5 +1,110 @@
-[gd_scene load_steps=2 format=3 uid="uid://c142d5c0qhqk1"]
+[gd_scene load_steps=4 format=3 uid="uid://c142d5c0qhqk1"]
 
 [ext_resource type="PackedScene" uid="uid://cx75ggvi8ih8i" path="res://scenes/content/content.tscn" id="1_n6boh"]
+[ext_resource type="PackedScene" uid="uid://bcim245yjlwwf" path="res://scenes/content_components/content_margin_container.tscn" id="2_1mphv"]
+[ext_resource type="PackedScene" uid="uid://bpvvyvfjeb3uy" path="res://scenes/content_components/code_label.tscn" id="3_1tuxc"]
 
 [node name="Structs" instance=ExtResource("1_n6boh")]
+
+[node name="ContentContainer" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="1" instance=ExtResource("2_1mphv")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer" index="0"]
+text = "Structs in C# are value types that represent lightweight objects containing data fields. They are typically used to represent small, immutable data structures and are passed by value.
+
+[b]Struct Declaration[/b]:"
+
+[node name="CodeLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="2" instance=ExtResource("3_1tuxc")]
+layout_mode = 2
+text = "public struct Point
+{
+    public int X;
+    public int Y;
+}"
+
+[node name="ContentContainer2" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="3" instance=ExtResource("2_1mphv")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer2" index="0"]
+auto_translate_mode = 1
+text = "[b]Value Type Semantics[/b]:"
+
+[node name="CodeLabel2" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="4" instance=ExtResource("3_1tuxc")]
+layout_mode = 2
+text = "Point point1 = new Point { X = 10, Y = 20 };
+Point point2 = point1; // Creates a copy of point1
+point2.X = 30;
+Console.WriteLine(point1.X); // Outputs: 10
+Console.WriteLine(point2.X); // Outputs: 30"
+
+[node name="ContentContainer3" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="5" instance=ExtResource("2_1mphv")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer3" index="0"]
+auto_translate_mode = 1
+text = "Structs have value type semantics, meaning instances of structs are stored directly where they are declared, unlike reference types, which are stored on the heap. When a struct is assigned to another variable or passed as a method argument, a copy of the struct is created.
+
+[b]Immutable Structs[/b]:"
+
+[node name="CodeLabel3" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="6" instance=ExtResource("3_1tuxc")]
+layout_mode = 2
+text = "public readonly struct ReadOnlyPoint
+{
+    public readonly int X;
+    public readonly int Y;
+
+    public ReadOnlyPoint(int x, int y)
+    {
+        X = x;
+        Y = y;
+    }
+}"
+
+[node name="ContentContainer4" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="7" instance=ExtResource("2_1mphv")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer4" index="0"]
+auto_translate_mode = 1
+text = "
+[center][u]Structs vs Classes[/u][/center]
+
+[b]Memory Allocation[/b]:
+[ul]
+Structs: Instances of structs are typically allocated on the stack or as part of another object's memory allocation. They are lightweight and have a fixed size determined by their fields.
+Classes: Instances of classes are allocated on the heap and managed by the garbage collector. They are reference types and can vary in size depending on the size of their fields and the size of the object header.
+[/ul]
+
+[b]Copying Semantics[/b]:
+[ul]
+Structs: When a struct is assigned to another variable, passed as a method argument, or returned from a method, a copy of the struct is created. Changes made to one instance do not affect other instances.
+Classes: When a class instance is assigned to another variable, passed as a method argument, or returned from a method, only the reference to the object is copied, not the object itself. Multiple references can point to the same object instance, and changes made through one reference affect all other references pointing to the same object.
+[/ul]
+
+[b]Default Initialization[/b]:
+[ul]
+Structs: All fields of a struct are automatically initialized to their default values (zero-initialized for numeric types, null for reference types, etc.) if no explicit constructor is provided.
+Classes: Fields of a class are initialized to their default values only if an explicit constructor is not provided. Otherwise, the constructor determines the initialization behavior.
+[/ul]
+
+[b]Inheritance and Polymorphism[/b]:
+[ul]
+Structs: Structs cannot inherit from other structs or classes, nor can they serve as base classes for other types. They do not support inheritance or polymorphism.
+Classes: Classes can inherit from other classes and implement interfaces, enabling inheritance hierarchies and polymorphic behavior.
+[/ul]
+
+[b]Mutability[/b]:
+[ul]
+Structs: Structs are immutable by default, meaning their fields cannot be modified after initialization. To change the value of a field, a new struct instance must be created.
+Classes: Classes can be mutable or immutable depending on their implementation. They offer more flexibility in terms of encapsulation and data modification.
+[/ul]
+
+[b]Performance Considerations[/b]:
+[ul]
+Structs: Structs are often more efficient in terms of memory usage and access speed, especially for small, frequently used data structures. However, copying large structs or passing them by value can incur performance overhead.
+Classes: Classes may have higher memory overhead due to heap allocation and garbage collection overhead. However, they offer better flexibility and manageability, especially for larger and more complex data structures.
+[/ul]"
+
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer"]
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer2"]
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer3"]
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer4"]
