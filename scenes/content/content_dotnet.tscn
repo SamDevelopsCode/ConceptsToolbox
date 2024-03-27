@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://csqf351jb25ky"]
+
+[ext_resource type="PackedScene" uid="uid://cx75ggvi8ih8i" path="res://scenes/content/content.tscn" id="1_omtqq"]
+[ext_resource type="PackedScene" uid="uid://bcim245yjlwwf" path="res://scenes/content_components/content_margin_container.tscn" id="2_ukb43"]
+
+[node name="DotNet" instance=ExtResource("1_omtqq")]
+
+[node name="MarginContainer" parent="BGPanel" index="0"]
+metadata/_edit_use_anchors_ = true
+
+[node name="ContentContainer" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="1" instance=ExtResource("2_ukb43")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer" index="0"]
+text = ".NET is a software development platform created by Microsoft. It provides developers with a set of tools, libraries, and frameworks to build a wide range of applications, such as websites, mobile apps, and desktop programs.
+
+At its core, .NET allows developers to write code in various programming languages, such as C#, Visual Basic, or F#. It also includes a runtime environment that manages the execution of the code and provides essential services like memory management and security.
+
+.NET offers different frameworks tailored for specific types of applications. For example, ASP.NET is used for web development, Xamarin for mobile app development, and .NET Core/.NET Framework for general-purpose application development.
+
+Overall, .NET simplifies and accelerates the process of building software by providing developers with the necessary tools and infrastructure to create robust and efficient applications for different platforms and devices."
+
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer"]

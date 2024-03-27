@@ -1,0 +1,94 @@
+[gd_scene load_steps=4 format=3 uid="uid://vfp2tbiuuaks"]
+
+[ext_resource type="PackedScene" uid="uid://cx75ggvi8ih8i" path="res://scenes/content/content.tscn" id="1_q6x2f"]
+[ext_resource type="PackedScene" uid="uid://bcim245yjlwwf" path="res://scenes/content_components/content_margin_container.tscn" id="2_vft3f"]
+[ext_resource type="PackedScene" uid="uid://bpvvyvfjeb3uy" path="res://scenes/content_components/code_label.tscn" id="3_dlfcg"]
+
+[node name="Properties" instance=ExtResource("1_q6x2f")]
+
+[node name="ContentContainer" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="1" instance=ExtResource("2_vft3f")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer" index="0"]
+text = "[b]Automatic Property[/b]:"
+
+[node name="CodeLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="2" instance=ExtResource("3_dlfcg")]
+layout_mode = 2
+text = "public class Person
+{
+    public string Name { get; set; } // Automatic property with getter and setter
+    public int Age { get; set; }     // Automatic property with getter and setter
+}"
+
+[node name="ContentContainer2" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="3" instance=ExtResource("2_vft3f")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer2" index="0"]
+auto_translate_mode = 1
+text = "Automatic properties provide a concise way to define properties with both getter and setter methods. They automatically generate a private backing field and provide the necessary getter and setter functionality.
+
+[b]Property with Custom Logic[/b]:"
+
+[node name="CodeLabel2" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="4" instance=ExtResource("3_dlfcg")]
+layout_mode = 2
+text = "public class TemperatureConverter
+{
+    private double celsius;
+
+    public double Celsius
+    {
+        get => celsius;                         // Getter returns the value of Celsius
+        set                                    // Setter sets the value of Celsius with custom logic
+        {
+            if (value < -273.15)
+            {
+                throw new ArgumentOutOfRangeException(nameof(value), \"Temperature cannot be below absolute zero.\");
+            }
+            celsius = value;
+        }
+    }
+
+    public double Fahrenheit => Celsius * 9 / 5 + 32;  // Expression-bodied property
+}"
+
+[node name="ContentContainer3" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="5" instance=ExtResource("2_vft3f")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer3" index="0"]
+auto_translate_mode = 1
+text = "Properties can contain custom logic in their getter and setter methods. In this example, the setter of the Celsius property validates the input value to ensure it's above absolute zero. Additionally, an expression-bodied property is used to calculate the Fahrenheit equivalent of the Celsius temperature.
+
+[b]Property Initialization in Constructor[/b]:"
+
+[node name="CodeLabel3" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="6" instance=ExtResource("3_dlfcg")]
+layout_mode = 2
+text = "public class Book
+{
+    public string Title { get; }   // Read-only property with getter only
+    public string Author { get; }  // Read-only property with getter only
+    public int Year { get; }       // Read-only property with getter only
+
+    public Book(string title, string author, int year)
+    {
+        Title = title;    // Initialization of read-only properties in the constructor
+        Author = author;  // Initialization of read-only properties in the constructor
+        Year = year;      // Initialization of read-only properties in the constructor
+    }
+}
+
+// Usage
+Book book = new Book(\"The Great Gatsby\", \"F. Scott Fitzgerald\", 1925);
+string title = book.Title;   // Accessing the read-only property
+"
+
+[node name="ContentContainer4" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="7" instance=ExtResource("2_vft3f")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer4" index="0"]
+auto_translate_mode = 1
+text = "    Properties can be initialized in the constructor, allowing for the initialization of read-only properties. Once initialized, the values of these properties cannot be modified, ensuring immutability and consistent behavior throughout the object's lifetime."
+
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer"]
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer2"]
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer3"]
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer4"]

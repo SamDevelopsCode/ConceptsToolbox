@@ -1,0 +1,66 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddmn85x3illpe"]
+
+[ext_resource type="PackedScene" uid="uid://cx75ggvi8ih8i" path="res://scenes/content/content.tscn" id="1_wrppr"]
+[ext_resource type="PackedScene" uid="uid://bcim245yjlwwf" path="res://scenes/content_components/content_margin_container.tscn" id="2_4c8oh"]
+[ext_resource type="PackedScene" uid="uid://bpvvyvfjeb3uy" path="res://scenes/content_components/code_label.tscn" id="3_ul56k"]
+
+[node name="Tuples" instance=ExtResource("1_wrppr")]
+
+[node name="ContentContainer" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="1" instance=ExtResource("2_4c8oh")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer" index="0"]
+text = "NOT FINISHED
+
+Tuples in C# provide a lightweight data structure to store a fixed-size sequence of elements of varying types. They allow for grouping together multiple values into a single object without the need to define a custom class or struct.
+
+[b]Tuple Declarations[/b]:"
+
+[node name="CodeLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="2" instance=ExtResource("3_ul56k")]
+layout_mode = 2
+text = "// long form declaration
+(string, int, int) score = (\"Sam\", 9999, 5);
+
+// using var can be a bit more concise in some situations
+var score = (\"Sam\", 9999, 5);"
+
+[node name="ContentContainer2" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="3" instance=ExtResource("2_4c8oh")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer2" index="0"]
+auto_translate_mode = 1
+text = "[b]Accessing Tuple Items[/b]:"
+
+[node name="CodeLabel2" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="4" instance=ExtResource("3_ul56k")]
+layout_mode = 2
+text = "// The names by default are Item1, Item2, and Item3
+
+Console.WriteLine($\"Name:{score.Item1} Level:{score.Item3} Score:{score.Item2}\");"
+
+[node name="ContentContainer3" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="5" instance=ExtResource("2_4c8oh")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer3" index="0"]
+auto_translate_mode = 1
+text = "Using 'Item#' can be cumbersome trying to remember the order, especially with longer tuples. Luckily we can give alternative names in a couple of different ways.
+
+[b]Assigning Tuple Item Names[/b]:"
+
+[node name="CodeLabel3" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="6" instance=ExtResource("3_ul56k")]
+layout_mode = 2
+text = "// assigning every item with a custom name
+(string Name, int Level, int Points) score = (\"Sam\", 9999, 5);
+Console.WriteLine($\"Name:{score.Name} Level:{score.Level} Score:{score.Points}\");
+
+// you don't have to give every item a custom name
+// any unnamed item will keep its original Item# name
+(string Name, int, int) score = (\"Sam\", 9999, 5);
+Console.WriteLine($\"Name:{score.Name} Level:{score.Item3} Score:{score.Item2}\");
+
+// alternatively you can use var using the below method when the tuple is formed
+var score = (Name: \"Sam\", Points: 9999, Level: 5);
+Console.WriteLine($\"Name:{score.Name} Level:{score.Level} Score:{score.Points}\");"
+
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer"]
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer2"]
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer3"]

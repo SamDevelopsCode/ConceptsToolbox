@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxhdr4rhia1in"]
+
+[ext_resource type="PackedScene" uid="uid://cx75ggvi8ih8i" path="res://scenes/content/content.tscn" id="1_ajc08"]
+[ext_resource type="PackedScene" uid="uid://bcim245yjlwwf" path="res://scenes/content_components/content_margin_container.tscn" id="2_w2v2k"]
+[ext_resource type="PackedScene" uid="uid://bpvvyvfjeb3uy" path="res://scenes/content_components/code_label.tscn" id="3_bd6gl"]
+
+[node name="Variables" instance=ExtResource("1_ajc08")]
+
+[node name="ContentContainer" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="1" instance=ExtResource("2_w2v2k")]
+layout_mode = 2
+theme_override_constants/margin_bottom = 20
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer" index="0"]
+text = "Variables are used to store and manipulate data within a program. They serve as placeholders that can hold various types of information, such as numbers, text, or objects. Before using a variable, you must declare its type, specifying what kind of data it will store, whether it's integers, floating-point numbers, characters, or custom-defined types."
+
+[node name="CodeLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="2" instance=ExtResource("3_bd6gl")]
+layout_mode = 2
+text = "string name = \"Sam\";
+int numberOfHumans = 1;
+float gpa = 2.7f;
+bool isSugarAddictive = true;"
+
+[node name="ContentContainer2" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="3" instance=ExtResource("2_w2v2k")]
+layout_mode = 2
+theme_override_constants/margin_bottom = 20
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer2" index="0"]
+text = "You can declare a variable and intialize it seperately if you need to."
+
+[node name="CodeLabel2" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="4" instance=ExtResource("3_bd6gl")]
+layout_mode = 2
+text = "int age;
+age = 1;"
+
+[node name="ContentContainer3" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="5" instance=ExtResource("2_w2v2k")]
+layout_mode = 2
+theme_override_constants/margin_bottom = 20
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer3" index="0"]
+text = "Additionally its possible to declare multiple variables simulatenously if they are the same type."
+
+[node name="CodeLabel3" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="6" instance=ExtResource("3_bd6gl")]
+layout_mode = 2
+text = "int age, cars, scores, pages;"
+
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer"]
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer2"]
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer3"]

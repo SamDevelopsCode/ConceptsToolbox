@@ -1,0 +1,93 @@
+[gd_scene load_steps=4 format=3 uid="uid://cw4hmub44n3vj"]
+
+[ext_resource type="PackedScene" uid="uid://cx75ggvi8ih8i" path="res://scenes/content/content.tscn" id="1_wctyb"]
+[ext_resource type="PackedScene" uid="uid://bcim245yjlwwf" path="res://scenes/content_components/content_margin_container.tscn" id="2_femds"]
+[ext_resource type="PackedScene" uid="uid://bpvvyvfjeb3uy" path="res://scenes/content_components/code_label.tscn" id="3_ne76i"]
+
+[node name="Records" instance=ExtResource("1_wctyb")]
+
+[node name="ContentContainer" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="1" instance=ExtResource("2_femds")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer" index="0"]
+text = "Records provide a concise syntax for defining immutable data types with value-based equality semantics.
+
+[b]Record Declaration[/b]:"
+
+[node name="CodeLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="2" instance=ExtResource("3_ne76i")]
+layout_mode = 2
+text = "public record Person
+{
+    public string Name { get; init; }
+    public int Age { get; init; }
+}
+
+
+var person = new Person { Name = \"John\", Age = 30 };
+// person.Name = \"Jane\"; // Error: Cannot assign to property 'Name' in an init-only property setter
+"
+
+[node name="ContentContainer2" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="3" instance=ExtResource("2_femds")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer2" index="0"]
+auto_translate_mode = 1
+text = "Record properties are implicitly immutable by default, meaning their values cannot be changed after initialization. Properties can be initialized using the init accessor, allowing initial assignment but preventing subsequent modifications.
+
+[b]Value-Based Equality[/b]:"
+
+[node name="CodeLabel2" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="4" instance=ExtResource("3_ne76i")]
+layout_mode = 2
+text = "var person1 = new Person { Name = \"John\", Age = 30 };
+var person2 = new Person { Name = \"John\", Age = 30 };
+Console.WriteLine(person1.Equals(person2)); // Outputs: True
+"
+
+[node name="ContentContainer3" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="5" instance=ExtResource("2_femds")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer3" index="0"]
+auto_translate_mode = 1
+text = "Records automatically provide value-based equality semantics, comparing the values of their properties rather than their references. Records override the Equals and GetHashCode methods to implement value equality.
+
+[b]With Expressions[/b]:"
+
+[node name="CodeLabel3" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="6" instance=ExtResource("3_ne76i")]
+layout_mode = 2
+text = "var person1 = new Person { Name = \"John\", Age = 30 };
+var person2 = person1 with { Age = 31 };
+Console.WriteLine(person1.Age); // Outputs: 30
+Console.WriteLine(person2.Age); // Outputs: 31
+"
+
+[node name="ContentContainer4" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="7" instance=ExtResource("2_femds")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer4" index="0"]
+auto_translate_mode = 1
+text = "Records provide a with expression to create a new record instance with modified property values while preserving other properties. This facilitates immutability and maintains the integrity of existing record instances.
+
+[b]Pattern Matching[/b]:"
+
+[node name="CodeLabel4" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="8" instance=ExtResource("3_ne76i")]
+layout_mode = 2
+text = "void PrintPerson(Person person)
+{
+    switch (person)
+    {
+        case { Age: 30 }:
+            Console.WriteLine(\"Person is 30 years old.\");
+            break;
+        case { Name: \"John\" }:
+            Console.WriteLine(\"Person's name is John.\");
+            break;
+        default:
+            Console.WriteLine(\"Other person.\");
+            break;
+    }
+}"
+
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer"]
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer2"]
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer3"]
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer4"]

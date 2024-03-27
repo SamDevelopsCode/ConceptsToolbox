@@ -1,0 +1,100 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5norbhlt6dwy"]
+
+[ext_resource type="PackedScene" uid="uid://cx75ggvi8ih8i" path="res://scenes/content/content.tscn" id="1_l24vp"]
+[ext_resource type="PackedScene" uid="uid://bcim245yjlwwf" path="res://scenes/content_components/content_margin_container.tscn" id="2_kmm5b"]
+[ext_resource type="PackedScene" uid="uid://bpvvyvfjeb3uy" path="res://scenes/content_components/code_label.tscn" id="3_5l874"]
+
+[node name="Inheritance" instance=ExtResource("1_l24vp")]
+
+[node name="ContentContainer" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="1" instance=ExtResource("2_kmm5b")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer" index="0"]
+text = "1. [b]Inheritance Overview[/b]:
+[ul]
+Inheritance is a fundamental concept in object-oriented programming.
+It allows a class (called a subclass or derived class) to inherit fields, properties, and methods from another class (called a superclass or base class).
+The subclass can then extend or modify the behavior of the base class, adding new functionality or overriding existing methods.
+[/ul]
+
+2. [b]Base Class and Derived Class[/b]:
+[ul]
+The base class is the class from which other classes derive.
+The derived class inherits properties and methods from the base class and may add its own members or override base class members.
+A class can have multiple subclasses, forming an inheritance hierarchy.
+[/ul]
+
+3. [b]Code Reusability[/b]:
+[ul]
+Inheritance promotes code reuse by allowing common functionality to be defined in a base class and reused in 	multiple derived classes.
+It avoids redundancy and duplication of code, leading to cleaner and more maintainable code.
+[/ul]
+
+4. [b]Polymorphism[/b]:
+[ul]
+Inheritance enables polymorphism, where objects of different classes can be treated interchangeably based on their common base class.
+Polymorphism allows for more flexible and extensible code, as methods can be written to accept objects of the base class type, and any derived class objects can be passed to them.
+[/ul]
+
+5. [b]Overriding and Extending[/b]:
+[ul]
+Derived classes can override methods from the base class to provide specialized implementations.
+They can also extend the functionality of the base class by adding new methods or properties.
+[/ul]"
+
+[node name="CodeLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="2" instance=ExtResource("3_5l874")]
+layout_mode = 2
+text = "[code]// Base class
+public class Vehicle
+{
+    protected string make;
+    protected string model;
+    protected int year;
+
+    public Vehicle(string make, string model, int year)
+    {
+        this.make = make;
+        this.model = model;
+        this.year = year;
+    }
+
+    public virtual void DisplayInfo()
+    {
+        Console.WriteLine($\"Make: {make}\");
+        Console.WriteLine($\"Model: {model}\");
+        Console.WriteLine($\"Year: {year}\");
+    }
+
+    public virtual void Start()
+    {
+        Console.WriteLine(\"Vehicle started!\");
+    }
+
+    public virtual void Stop()
+    {
+        Console.WriteLine(\"Vehicle stopped!\");
+    }
+}
+
+// Derived class
+public class Car : Vehicle
+{
+    public override void DisplayInfo()
+    {
+        Console.WriteLine(\"Car Information:\");
+        base.DisplayInfo();
+    }
+
+ public override void Start()
+    {
+        Console.WriteLine(\"Car started!\");
+    }
+
+    public override void Stop()
+    {
+        Console.WriteLine(\"Car stopped!\");
+    }
+}
+[/code]"
+
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer"]

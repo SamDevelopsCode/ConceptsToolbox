@@ -1,0 +1,135 @@
+[gd_scene load_steps=4 format=3 uid="uid://qjw3nle7oi62"]
+
+[ext_resource type="PackedScene" uid="uid://cx75ggvi8ih8i" path="res://scenes/content/content.tscn" id="1_vrjh0"]
+[ext_resource type="PackedScene" uid="uid://bcim245yjlwwf" path="res://scenes/content_components/content_margin_container.tscn" id="2_6u5vd"]
+[ext_resource type="PackedScene" uid="uid://bpvvyvfjeb3uy" path="res://scenes/content_components/code_label.tscn" id="3_rg443"]
+
+[node name="Accessors" instance=ExtResource("1_vrjh0")]
+
+[node name="ContentContainer" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="1" instance=ExtResource("2_6u5vd")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer" index="0"]
+text = "Access modifiers are keywords used to specify the accessibility of types and type members (such as fields, properties, methods, and constructors) within assemblies.
+
+1. [b]public[/b]:"
+
+[node name="CodeLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="2" instance=ExtResource("3_rg443")]
+layout_mode = 2
+text = "public class MyClass
+{
+    public int PublicField;
+    public void PublicMethod() { }
+}"
+
+[node name="ContentContainer2" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="3" instance=ExtResource("2_6u5vd")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer2" index="0"]
+text = "Members with the public access modifier are accessible from any other code in the same assembly or in other assemblies referencing the assembly.
+
+2. [b]private[/b]:"
+
+[node name="CodeLabel2" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="4" instance=ExtResource("3_rg443")]
+layout_mode = 2
+text = "public class MyClass
+{
+    private int PrivateField;
+    private void PrivateMethod() { }
+}"
+
+[node name="ContentContainer3" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="5" instance=ExtResource("2_6u5vd")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer3" index="0"]
+text = "Members with the private access modifier are accessible only from within the same class or struct.
+
+3. [b]protected[/b]:"
+
+[node name="CodeLabel3" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="6" instance=ExtResource("3_rg443")]
+layout_mode = 2
+text = "public class MyBaseClass
+{
+    protected int ProtectedField;
+    protected void ProtectedMethod() { }
+}
+
+public class MyDerivedClass : MyBaseClass
+{
+    public void AccessProtected()
+    {
+        ProtectedField = 10; // Accessible in derived class
+        ProtectedMethod(); // Accessible in derived class
+    }
+}"
+
+[node name="ContentContainer4" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="7" instance=ExtResource("2_6u5vd")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer4" index="0"]
+text = "Members with the protected access modifier are accessible within the containing class and by derived classes. They are not accessible from instances of the base class.
+
+4. [b]internal[/b]:"
+
+[node name="CodeLabel4" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="8" instance=ExtResource("3_rg443")]
+layout_mode = 2
+text = "internal class InternalClass
+{
+    internal int InternalField;
+    internal void InternalMethod() { }
+}"
+
+[node name="ContentContainer5" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="9" instance=ExtResource("2_6u5vd")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer5" index="0"]
+text = "Members with the internal access modifier are accessible within the same assembly but not from other assemblies. It's the default access modifier for classes and members if no access modifier is specified.
+
+5. [b]protected internal[/b]:"
+
+[node name="CodeLabel5" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="10" instance=ExtResource("3_rg443")]
+layout_mode = 2
+text = "public class MyClass
+{
+    protected internal int ProtectedInternalField;
+    protected internal void ProtectedInternalMethod() { }
+}"
+
+[node name="ContentContainer6" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="11" instance=ExtResource("2_6u5vd")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer6" index="0"]
+text = "Members with the protected internal access modifier are accessible within the same assembly and by derived classes, even if they are in a different assembly.
+
+6. [b]private protected[/b]:"
+
+[node name="CodeLabel6" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="12" instance=ExtResource("3_rg443")]
+layout_mode = 2
+text = "public class MyBaseClass
+{
+    private protected int PrivateProtectedField;
+    private protected void PrivateProtectedMethod() { }
+}
+
+public class MyDerivedClass : MyBaseClass
+{
+    public void AccessPrivateProtected()
+    {
+        PrivateProtectedField = 20; // Accessible in derived class in same assembly
+        PrivateProtectedMethod(); // Accessible in derived class in same assembly
+    }
+}"
+
+[node name="ContentContainer7" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer" index="13" instance=ExtResource("2_6u5vd")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer7" index="0"]
+text = "Members with the private protected access modifier are accessible only within the same assembly and by derived classes in that assembly."
+
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer"]
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer2"]
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer3"]
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer4"]
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer5"]
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer6"]
+[editable path="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/ContentContainer7"]

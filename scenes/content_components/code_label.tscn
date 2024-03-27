@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpvvyvfjeb3uy"]
+
+[ext_resource type="FontFile" uid="uid://dw05f6drfayoo" path="res://fonts/Courier Prime.ttf" id="1_mcqc7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n142s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nj47p"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 20
+
+[node name="CodeLabel" type="RichTextLabel"]
+auto_translate_mode = 1
+focus_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_mcqc7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_n142s")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nj47p")
+bbcode_enabled = true
+text = "string name = \"Sam\";
+int numberOfHumans = 1;
+float gpa = 2.7f;"
+fit_content = true
+context_menu_enabled = true
+selection_enabled = true
