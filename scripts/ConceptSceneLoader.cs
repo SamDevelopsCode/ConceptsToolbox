@@ -50,7 +50,7 @@ public partial class ConceptSceneLoader : VBoxContainer
 		Control newConceptContentInstance = packedScene.Instantiate<Control>();
 		_contentContainer.AddChild(newConceptContentInstance);
 		
-		// using modulation in method instead of hiding/showing because of weird flickering on load
+		// using modulation instead of hiding/showing because of weird flickering on load
 		newConceptContentInstance.Modulate = new Color(0, 0, 0, 0);
 		
 		// docs say to await a process frame before setting scale of a control that is a child of a container on load
