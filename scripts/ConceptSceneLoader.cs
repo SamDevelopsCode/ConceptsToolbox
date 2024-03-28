@@ -1,3 +1,4 @@
+using System.IO;
 using Godot;
 using System.Threading.Tasks;
 
@@ -6,6 +7,10 @@ public partial class ConceptSceneLoader : VBoxContainer
 	[ExportCategory("Main Content Container")]
 	[Export] private VBoxContainer _contentContainer;
 
+	[Export] private PackedScene _contentScene;
+	[Export] private PackedScene _textComponentScene;
+	[Export] private PackedScene _codeComponentScene;
+	
 	private bool _transitioningContentScenes;
 
 	public override void _Ready()
@@ -31,36 +36,54 @@ public partial class ConceptSceneLoader : VBoxContainer
 		
 		if (_contentContainer.GetChildCount() > 0)
 		{
-			var currentConceptContentInstance = _contentContainer.GetChild(0);
+			var currentConcept = _contentContainer.GetChild(0);
 
-			if (currentConceptContentInstance.Name == button.Text)
+			if (currentConcept.Name == button.Text)
 			{
 				return;
 			}
 			
-			await TweenConceptContentInstanceExit(currentConceptContentInstance);
+			await TweenConceptContentInstanceExit(currentConcept);
 		}
 
-		AddConceptContentPage(button.conceptScene, button.Text);
+		AddConceptContentPage();
 	}
 
 	
-	private async void AddConceptContentPage(PackedScene packedScene, string buttonText)
+	private async void AddConceptContentPage()
 	{
-		Control newConceptContentInstance = packedScene.Instantiate<Control>();
-		_contentContainer.AddChild(newConceptContentInstance);
+		ContentPage contentPage = _contentScene.Instantiate<ContentPage>();
+		GD.Print(contentPage.Vbox);
+		_contentContainer.AddChild(contentPage);
+
+		// Get the data from file
+		if (File.Exists("C:\\Users\\there\\OneDrive\\Desktop\\variables.txt"))
+		{
+			string contentText = File.ReadAllText("C:\\Users\\there\\OneDrive\\Desktop\\variables.txt");
+			GD.Print(contentText);
+		}
+		
+		
+		TextComponent newTextComponent = _textComponentScene.Instantiate<TextComponent>();
+		newTextComponent.RichTextLabel.Text = "hello";
+		contentPage.Vbox.AddChild(newTextComponent);
+
+		RichTextLabel newCodeComponent = _codeComponentScene.Instantiate<RichTextLabel>();
+		newCodeComponent.Text = "I am code here;";
+		contentPage.Vbox.AddChild(newCodeComponent);
+		
 		
 		// using modulation instead of hiding/showing because of weird flickering on load
-		newConceptContentInstance.Modulate = new Color(0, 0, 0, 0);
+		contentPage.Modulate = new Color(0, 0, 0, 0);
 		
 		// docs say to await a process frame before setting scale of a control that is a child of a container on load
 		await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
 		
-		newConceptContentInstance.Modulate = Colors.White;
-		newConceptContentInstance.Scale = new Vector2(.01f, .01f);
-		newConceptContentInstance.PivotOffset = newConceptContentInstance.Size / 2;
+		contentPage.Modulate = Colors.White;
+		contentPage.Scale = new Vector2(.01f, .01f);
+		contentPage.PivotOffset = contentPage.Size / 2;
 		
-		TweenConceptContentInstanceEntry(newConceptContentInstance);
+		TweenConceptContentInstanceEntry(contentPage);
 	}
 
 

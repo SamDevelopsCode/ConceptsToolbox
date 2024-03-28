@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://c5norbhlt6dwy"]
 
 [ext_resource type="PackedScene" uid="uid://cx75ggvi8ih8i" path="res://scenes/content/content.tscn" id="1_l24vp"]
-[ext_resource type="PackedScene" uid="uid://bcim245yjlwwf" path="res://scenes/content_components/content_margin_container.tscn" id="2_kmm5b"]
-[ext_resource type="PackedScene" uid="uid://bpvvyvfjeb3uy" path="res://scenes/content_components/code_label.tscn" id="3_5l874"]
+[ext_resource type="PackedScene" uid="uid://bcim245yjlwwf" path="res://scenes/content_components/text_component.tscn" id="2_kmm5b"]
+[ext_resource type="PackedScene" uid="uid://bpvvyvfjeb3uy" path="res://scenes/content_components/code_component.tscn" id="3_5l874"]
 
 [node name="Inheritance" instance=ExtResource("1_l24vp")]
 

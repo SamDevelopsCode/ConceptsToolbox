@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://br5u6kua4kc2"]
 
 [ext_resource type="PackedScene" uid="uid://cx75ggvi8ih8i" path="res://scenes/content/content.tscn" id="1_w2vxd"]
-[ext_resource type="PackedScene" uid="uid://bcim245yjlwwf" path="res://scenes/content_components/content_margin_container.tscn" id="2_ov6kj"]
-[ext_resource type="PackedScene" uid="uid://bpvvyvfjeb3uy" path="res://scenes/content_components/code_label.tscn" id="3_ho62x"]
+[ext_resource type="PackedScene" uid="uid://bcim245yjlwwf" path="res://scenes/content_components/text_component.tscn" id="2_ov6kj"]
+[ext_resource type="PackedScene" uid="uid://bpvvyvfjeb3uy" path="res://scenes/content_components/code_component.tscn" id="3_ho62x"]
 
 [node name="Arrays" instance=ExtResource("1_w2vxd")]
 

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cx75ggvi8ih8i" path="res://scenes/content/content.tscn" id="1_co77m"]
 [ext_resource type="Theme" uid="uid://hk1daviq14ti" path="res://themes/main.tres" id="2_isrh8"]
-[ext_resource type="PackedScene" uid="uid://bcim245yjlwwf" path="res://scenes/content_components/content_margin_container.tscn" id="2_p4iqn"]
+[ext_resource type="PackedScene" uid="uid://bcim245yjlwwf" path="res://scenes/content_components/text_component.tscn" id="2_p4iqn"]
 
 [node name="Classes" instance=ExtResource("1_co77m")]
 

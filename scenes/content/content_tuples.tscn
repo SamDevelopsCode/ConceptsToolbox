@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://ddmn85x3illpe"]
 
 [ext_resource type="PackedScene" uid="uid://cx75ggvi8ih8i" path="res://scenes/content/content.tscn" id="1_wrppr"]
-[ext_resource type="PackedScene" uid="uid://bcim245yjlwwf" path="res://scenes/content_components/content_margin_container.tscn" id="2_4c8oh"]
-[ext_resource type="PackedScene" uid="uid://bpvvyvfjeb3uy" path="res://scenes/content_components/code_label.tscn" id="3_ul56k"]
+[ext_resource type="PackedScene" uid="uid://bcim245yjlwwf" path="res://scenes/content_components/text_component.tscn" id="2_4c8oh"]
+[ext_resource type="PackedScene" uid="uid://bpvvyvfjeb3uy" path="res://scenes/content_components/code_component.tscn" id="3_ul56k"]
 
 [node name="Tuples" instance=ExtResource("1_wrppr")]
 

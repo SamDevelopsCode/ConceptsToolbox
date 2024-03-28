@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://hgci7p5fdv6y"]
+[gd_scene load_steps=39 format=3 uid="uid://hgci7p5fdv6y"]
 
 [ext_resource type="Texture2D" uid="uid://ik7m64txpp33" path="res://art/menu_icon.svg" id="2_4tn1m"]
 [ext_resource type="Script" path="res://scripts/MainControls.cs" id="2_c630d"]
@@ -9,9 +9,12 @@
 [ext_resource type="Theme" uid="uid://hk1daviq14ti" path="res://themes/main.tres" id="5_rd3j3"]
 [ext_resource type="Script" path="res://scripts/ConceptSceneLoader.cs" id="8_jfubk"]
 [ext_resource type="PackedScene" uid="uid://qjw3nle7oi62" path="res://scenes/content/content_access_modifiers.tscn" id="9_dh2wl"]
+[ext_resource type="PackedScene" uid="uid://cx75ggvi8ih8i" path="res://scenes/content/content.tscn" id="9_kpsne"]
 [ext_resource type="PackedScene" uid="uid://dkw577o8t8jb0" path="res://scenes/content_components/concept_button.tscn" id="10_e02n0"]
+[ext_resource type="PackedScene" uid="uid://bcim245yjlwwf" path="res://scenes/content_components/text_component.tscn" id="10_pygux"]
 [ext_resource type="PackedScene" uid="uid://br5u6kua4kc2" path="res://scenes/content/content_arrays.tscn" id="10_s232x"]
 [ext_resource type="PackedScene" uid="uid://bjrnek1jeg0il" path="res://scenes/content/content_classes.tscn" id="11_apqqs"]
+[ext_resource type="PackedScene" uid="uid://bpvvyvfjeb3uy" path="res://scenes/content_components/code_component.tscn" id="11_gabr8"]
 [ext_resource type="PackedScene" uid="uid://csqf351jb25ky" path="res://scenes/content/content_dotnet.tscn" id="12_pnmko"]
 [ext_resource type="PackedScene" uid="uid://cs85gh7uivwwk" path="res://scenes/content/content_enumerations.tscn" id="13_h85aq"]
 [ext_resource type="PackedScene" uid="uid://dd6me05n04ft1" path="res://scenes/content/content_generics.tscn" id="14_eeedk"]
@@ -193,6 +196,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("8_jfubk")
 _contentContainer = NodePath("../../../Content")
+_contentScene = ExtResource("9_kpsne")
+_textComponentScene = ExtResource("10_pygux")
+_codeComponentScene = ExtResource("11_gabr8")
 
 [node name="Dotnet" parent="VBoxContainer/HBoxContainer/Sidebar/ScrollContainer/ConceptButtons" instance=ExtResource("10_e02n0")]
 layout_mode = 2

@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://cx75ggvi8ih8i"]
 
 [ext_resource type="Theme" uid="uid://hk1daviq14ti" path="res://themes/main.tres" id="1_2oaqp"]
-[ext_resource type="Script" path="res://scripts/ConceptContent.cs" id="2_s6e06"]
+[ext_resource type="Script" path="res://scripts/ContentPage.cs" id="2_1g33l"]
 [ext_resource type="FontFile" uid="uid://bpvvc1sqlbv25" path="res://fonts/Fragmentcore.otf" id="3_yyl5w"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ubsot"]
 content_margin_right = 70.0
 
-[node name="InfoContainer" type="MarginContainer"]
+[node name="Content" type="MarginContainer" node_paths=PackedStringArray("_title", "Vbox")]
 auto_translate_mode = 1
 clip_contents = true
 anchors_preset = 15
@@ -21,7 +21,9 @@ theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
-script = ExtResource("2_s6e06")
+script = ExtResource("2_1g33l")
+_title = NodePath("BGPanel/MarginContainer/ScrollContainer/VBox/TitleContainer/Title")
+Vbox = NodePath("BGPanel/MarginContainer/ScrollContainer/VBox")
 
 [node name="BGPanel" type="Panel" parent="."]
 auto_translate_mode = 1
@@ -42,18 +44,17 @@ theme_override_constants/margin_right = 80
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_ubsot")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="BGPanel/MarginContainer/ScrollContainer"]
+[node name="VBox" type="VBoxContainer" parent="BGPanel/MarginContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="TitleContainer" type="MarginContainer" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer"]
+[node name="TitleContainer" type="MarginContainer" parent="BGPanel/MarginContainer/ScrollContainer/VBox"]
 layout_mode = 2
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="Title" type="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBoxContainer/TitleContainer"]
-unique_name_in_owner = true
+[node name="Title" type="RichTextLabel" parent="BGPanel/MarginContainer/ScrollContainer/VBox/TitleContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 theme = ExtResource("1_2oaqp")
