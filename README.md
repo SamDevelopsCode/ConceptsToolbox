@@ -1,5 +1,5 @@
-Technologies: Godot Engine \
-Languages: C#
+**Technologies: Godot Engine \
+Languages: C#**
 
 An application I built using C# in the Godot Engine which is a toolbox of concepts to help visualize what tools C# offers us as developers, to solve problems.
 
